@@ -20,6 +20,8 @@ public class PlayerCollisionHandler : MonoBehaviour
 
             else if (other.CompareTag(TagManager.BRIDGE_TAG)) {
 
+                //CamFollowPlayer.Instance.SetIsOnBridge(true); // alert camera
+
                 StartCoroutine(EnterBridge(other, false)); // player is not on end_platform
                 
             }
@@ -46,11 +48,7 @@ public class PlayerCollisionHandler : MonoBehaviour
             }
             else if (other.CompareTag(TagManager.FINISHLINE_TAG)) {
 
-                //wait for 2 seconds before restarting maybe? maybe a chest, and then an animation would be cool
                 GameManager.Instance.LevelFinished(true);
-
-
-                //Debug.Log("called it!");
             }
 
         }
@@ -75,7 +73,6 @@ public class PlayerCollisionHandler : MonoBehaviour
 
             if (flag) {
             
-                //wait for 2 seconds before restarting maybe? maybe a sad animation would be cool
                 GameManager.Instance.LevelFinished(false);
             }
 
@@ -86,6 +83,8 @@ public class PlayerCollisionHandler : MonoBehaviour
     private void OnTriggerExit(Collider other) {
         
         if (other.CompareTag(TagManager.BRIDGE_TAG)) {
+
+            //CamFollowPlayer.Instance.SetIsOnBridge(false); // alert camera
 
             other.GetComponent<BridgeHandler>().OnTriggerExitBridge();
         }
