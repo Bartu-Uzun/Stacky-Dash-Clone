@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PathCreation;
 
 public class PlayerCollisionHandler : MonoBehaviour
 {
@@ -23,6 +24,14 @@ public class PlayerCollisionHandler : MonoBehaviour
                 //CamFollowPlayer.Instance.SetIsOnBridge(true); // alert camera
 
                 StartCoroutine(EnterBridge(other, false)); // player is not on end_platform
+                
+            }
+            else if (other.CompareTag(TagManager.PATH_TAG)) {
+
+                Debug.Log("added path");
+
+                //PathManager.Instance.AddPath(other.gameObject); //PATHNEW add path if player has access to it
+
                 
             }
             else if (other.CompareTag(TagManager.END_BRIDGE_TAG)) {
@@ -87,6 +96,10 @@ public class PlayerCollisionHandler : MonoBehaviour
             //CamFollowPlayer.Instance.SetIsOnBridge(false); // alert camera
 
             other.GetComponent<BridgeHandler>().OnTriggerExitBridge();
+        }
+        else if (other.CompareTag(TagManager.PATH_TAG)) {
+
+            //PathManager.Instance.RemovePath(other.gameObject); //PATHNEW remove path if player has no access to it
         }
     }
 
