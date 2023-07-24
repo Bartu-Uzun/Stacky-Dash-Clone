@@ -13,7 +13,7 @@ public class Path : MonoBehaviour
     [SerializeField] private float _distanceTravelledReverse = 10;
     [SerializeField] private float _distanceTravelled = 0;
 
-    public enum Direction {Left, Right, Up, Down};
+    public enum Direction {Left, Right, Up, Down, Bridge};
     
 
     public Direction GetDirection() {

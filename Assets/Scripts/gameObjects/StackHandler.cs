@@ -9,6 +9,7 @@ public class StackHandler : MonoBehaviour
 
     [SerializeField] private List<GameObject> _stacks = new List<GameObject>();
     [SerializeField] private GameObject _character;
+    [SerializeField] private GameObject _stackGarbage;
 
     private float _deltaY = 0.5f;
 
@@ -31,6 +32,7 @@ public class StackHandler : MonoBehaviour
         return _stacks.Count;
     }
 
+    // used in the old movement system
     public GameObject RemoveStack() {
 
         GameObject stack = _stacks[_stacks.Count - 1];
@@ -40,6 +42,20 @@ public class StackHandler : MonoBehaviour
         _character.transform.localPosition += Vector3.down * _deltaY;
 
         return stack;
+    }
+
+    //used in the new movement system
+    public void RemoveStackFromStackList() {
+
+        GameObject stack = _stacks[_stacks.Count - 1];
+
+        _stacks.Remove(stack);
+
+        _character.transform.localPosition += Vector3.down * _deltaY;
+
+        stack.transform.SetParent(_stackGarbage.transform);
+
+        stack.SetActive(false);
     }
 
     public void AddStack(GameObject other) {

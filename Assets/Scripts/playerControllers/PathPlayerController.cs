@@ -9,7 +9,8 @@ public class PathPlayerController : MonoBehaviour
     public static PathPlayerController Instance;
 
     [SerializeField] private float _speed = 5;
-    //[SerializeField] private PathCreator pathCreator;
+    
+    private float _threshold = 0.005f;
 
     [SerializeField] private bool _shouldGoLeft = false;
     [SerializeField] private bool _shouldGoRight = false;
@@ -17,6 +18,7 @@ public class PathPlayerController : MonoBehaviour
     [SerializeField] private bool _shouldGoDown = false;
 
     [SerializeField] private bool _isMoving = false;
+    [SerializeField] private bool _isSliding = false;
 
     private bool _stoppedOnBridge = false;
     [SerializeField] private float _currentDistanceTravelled;
@@ -66,13 +68,35 @@ public class PathPlayerController : MonoBehaviour
         //transform.rotation = _currentPathCreator.path.GetRotationAtDistance(_currentDistanceTravelled, EndOfPathInstruction.Stop);
 
 
-        if (Vector3.Distance(previousPos, transform.position) == 0) { // player has stopped
+        if (Vector3.Distance(previousPos, transform.position) <= _threshold) { // player has stopped
             Stop();
         }
 
     }
 
+    public void SlideOnBridge(GameObject path) {
+
+        Debug.Log("i slide on: " + path.gameObject.transform.parent.name);
+
+        _currentPath = path;
+
+        Path pathComponent = _currentPath.GetComponent<Path>();
+        // pathComponent.SetDirection(Path.Direction.Right); might need a new enum val for bridges that stays constant
+            
+        _isSliding = true;
+        _isMoving = true;
+
+        _currentPathCreator = _currentPath.GetComponent<PathCreator>();
+        _currentPathMovementFactor = pathComponent.GetMovementFactor();
+        _currentDistanceTravelled = pathComponent.GetDistanceTravelled();
+
+        pathComponent.ReverseMovementFactor();
+        pathComponent.ReverseDistanceTravelled();
+    }
+
     public void Stop() {
+
+        //Debug.Log("STOPP");
 
         _shouldGoDown = false;
         _shouldGoLeft = false;
@@ -80,12 +104,12 @@ public class PathPlayerController : MonoBehaviour
         _shouldGoUp = false;
 
         _isMoving = false;
+        _isSliding = false;
 
         
         
         _currentPath = null;
         _currentPathCreator = null;
-        //_currentDistanceTravelled = 0;
     }
 
     // called whenever player should stop on a bridge
@@ -234,5 +258,10 @@ public class PathPlayerController : MonoBehaviour
             
             
         }
+    }
+
+    public bool GetIsSliding() {
+
+        return _isSliding;
     }
 }

@@ -19,29 +19,34 @@ public class PlayerCollisionHandler : MonoBehaviour
 
             }
 
-            else if (other.CompareTag(TagManager.BRIDGE_TAG)) {
+            else if (other.CompareTag(TagManager.BRIDGE_TAG) && !other.GetComponent<Bridge>().GetIsPlayerOn()) {
 
                 //CamFollowPlayer.Instance.SetIsOnBridge(true); // alert camera
 
-                StartCoroutine(EnterBridge(other, false)); // player is not on end_platform
+                //StartCoroutine(EnterBridge(other, false)); // player is not on end_platform OLD VERSION
+
+
+                other.GetComponent<Bridge>().SetIsPlayerOn(true);
+
+                Debug.Log("i enter: " + other.gameObject.transform.parent.name);
+
+                StartCoroutine(EnterBridge(other));
                 
             }
             else if (other.CompareTag(TagManager.PATH_TAG)) {
 
-                Debug.Log("added path");
+                //Debug.Log("added path");
 
                 PathManager.Instance.AddPath(other.gameObject); //PATHNEW add path if player has access to it
 
             }
-            else if (other.CompareTag(TagManager.BRIDGE_WO_STACK_TAG)) {
-
-                //LAST WEEK: enter other's path
-            }
+            /*
             else if (other.CompareTag(TagManager.END_BRIDGE_TAG)) {
 
                 StartCoroutine(EnterBridge(other, true)); //player is on end_platform
 
             }
+            */
             else if (other.CompareTag(TagManager.X1_TAG)) {
 
                 GameManager.Instance.SetTimes(1);
@@ -71,20 +76,18 @@ public class PlayerCollisionHandler : MonoBehaviour
     }
 
     
-
+    /* OLD VERSION
     private void OnTriggerStay(Collider other) {
 
         if (!GameManager.Instance.GetLevelFinished()) { //if level has not finished yet
 
+            
             if (other.gameObject.CompareTag(TagManager.BRIDGE_TAG)) {
-                flag = other.GetComponent<BridgeHandler>().Slide();
+                //flag = other.GetComponent<BridgeHandler>().Slide(); 
             }
+
             else if (other.gameObject.CompareTag(TagManager.END_BRIDGE_TAG)) {
                 flag = other.GetComponent<BridgeHandler>().Slide();
-            }
-            else if (other.gameObject.CompareTag(TagManager.BRIDGE_WO_STACK_TAG)) {
-
-                //LAST WEEK: SLIDE IN THE BRIDGE IF PLAYER HAS STACK
             }
 
             if (flag) {
@@ -95,25 +98,28 @@ public class PlayerCollisionHandler : MonoBehaviour
         }        
         
     }
+    */
 
     private void OnTriggerExit(Collider other) {
         
-        if (other.CompareTag(TagManager.BRIDGE_TAG)) {
+        
+        if (other.CompareTag(TagManager.BRIDGE_TAG) && other.GetComponent<Bridge>().GetIsPlayerOn()) {
 
             //CamFollowPlayer.Instance.SetIsOnBridge(false); // alert camera
 
-            other.GetComponent<BridgeHandler>().OnTriggerExitBridge();
-        }
-        else if (other.CompareTag(TagManager.PATH_TAG)) {
+            //other.GetComponent<BridgeHandler>().OnTriggerExitBridge(); OLD VERSION
 
-            Debug.Log("exit path");
+            Debug.Log("i exit: " + other.gameObject.transform.parent.name);
+
+            //other.GetComponent<Bridge>().OnExitBridge();
+        } 
+        if (other.CompareTag(TagManager.PATH_TAG)) {
+
+            //Debug.Log("exit path");
 
             PathManager.Instance.RemovePath(other.gameObject); //PATHNEW remove path if player has no access to it
         }
-        else if (other.CompareTag(TagManager.BRIDGE_WO_STACK_TAG)) {
-
-            //LAST WEEK: leave the path, if path has a stack now, change its tag
-        }
+        
     }
 
     private void OnCollisionEnter(Collision other) {
@@ -128,9 +134,16 @@ public class PlayerCollisionHandler : MonoBehaviour
         
     }
     
+    private IEnumerator EnterBridge(Collider other) {
+        
+        yield return new WaitForSeconds(0.05f);
+
+        other.GetComponent<Bridge>().OnEnterBridge();
+
+    }
 
 
-    
+    /* OLD VERSION
     private IEnumerator EnterBridge(Collider other, bool enteredEndPlatform) {
 
         yield return new WaitForSeconds(0.05f);
@@ -138,6 +151,6 @@ public class PlayerCollisionHandler : MonoBehaviour
         other.GetComponent<BridgeHandler>().OnEnterBridge(enteredEndPlatform);
 
     }
-    
+    */
     
 }
