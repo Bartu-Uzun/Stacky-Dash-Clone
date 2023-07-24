@@ -9,7 +9,7 @@ public class PathPlayerController : MonoBehaviour
     public static PathPlayerController Instance;
 
     [SerializeField] private float _speed = 5;
-    [SerializeField] private PathCreator pathCreator;
+    //[SerializeField] private PathCreator pathCreator;
 
     [SerializeField] private bool _shouldGoLeft = false;
     [SerializeField] private bool _shouldGoRight = false;
@@ -19,10 +19,12 @@ public class PathPlayerController : MonoBehaviour
     [SerializeField] private bool _isMoving = false;
 
     private bool _stoppedOnBridge = false;
-    private float _distanceTravelled;
+    [SerializeField] private float _currentDistanceTravelled;
+
+    private float _currentPathMovementFactor;
 
     private GameObject _currentPath;
-    private PathCreator _currentPathCreator;
+    [SerializeField] private PathCreator _currentPathCreator;
     private Vector3 previousPos;
 
     private void Awake() {
@@ -59,10 +61,10 @@ public class PathPlayerController : MonoBehaviour
     private void Move() {
 
         previousPos = transform.position;
+        _currentDistanceTravelled += _speed * _currentPathMovementFactor * Time.deltaTime;
+        transform.position = _currentPathCreator.path.GetPointAtDistance(_currentDistanceTravelled, EndOfPathInstruction.Stop);
+        //transform.rotation = _currentPathCreator.path.GetRotationAtDistance(_currentDistanceTravelled, EndOfPathInstruction.Stop);
 
-        _distanceTravelled += _speed * Time.deltaTime;
-        transform.position = pathCreator.path.GetPointAtDistance(_distanceTravelled, EndOfPathInstruction.Stop);
-        //transform.rotation = pathCreator.path.GetRotationAtDistance(_distanceTravelled, EndOfPathInstruction.Stop);
 
         if (Vector3.Distance(previousPos, transform.position) == 0) { // player has stopped
             Stop();
@@ -79,9 +81,11 @@ public class PathPlayerController : MonoBehaviour
 
         _isMoving = false;
 
+        
+        
         _currentPath = null;
         _currentPathCreator = null;
-        _distanceTravelled = 0;
+        //_currentDistanceTravelled = 0;
     }
 
     // called whenever player should stop on a bridge
@@ -150,10 +154,18 @@ public class PathPlayerController : MonoBehaviour
                 _currentPath = PathManager.Instance.GetPath(Path.Direction.Left);
 
                 if (_currentPath != null) {
-                    _currentPath.GetComponent<Path>().SetDirection(Path.Direction.Right);
+                    Path pathComponent = _currentPath.GetComponent<Path>();
+                    pathComponent.SetDirection(Path.Direction.Right);
+                    
+                    
                     _isMoving = true;
 
                     _currentPathCreator = _currentPath.GetComponent<PathCreator>();
+                    _currentPathMovementFactor = pathComponent.GetMovementFactor();
+                    _currentDistanceTravelled = pathComponent.GetDistanceTravelled();
+
+                    pathComponent.ReverseMovementFactor();
+                    pathComponent.ReverseDistanceTravelled();
                 }
                 
 
@@ -163,13 +175,17 @@ public class PathPlayerController : MonoBehaviour
 
                 _currentPath = PathManager.Instance.GetPath(Path.Direction.Right);
 
-                //Debug.Log("current path:" + _currentPath);
-
                 if (_currentPath != null) {
-                    _currentPath.GetComponent<Path>().SetDirection(Path.Direction.Left);
+                    Path pathComponent = _currentPath.GetComponent<Path>();
+                    pathComponent.SetDirection(Path.Direction.Left);
                     _isMoving = true;
 
                     _currentPathCreator = _currentPath.GetComponent<PathCreator>();
+                    _currentPathMovementFactor = pathComponent.GetMovementFactor();
+                    _currentDistanceTravelled = pathComponent.GetDistanceTravelled();
+
+                    pathComponent.ReverseMovementFactor();
+                    pathComponent.ReverseDistanceTravelled();
                 }
                 
 
@@ -180,11 +196,16 @@ public class PathPlayerController : MonoBehaviour
                 _currentPath = PathManager.Instance.GetPath(Path.Direction.Down);
 
                 if (_currentPath != null) {
-
-                    _currentPath.GetComponent<Path>().SetDirection(Path.Direction.Up);
+                    Path pathComponent = _currentPath.GetComponent<Path>();
+                    pathComponent.SetDirection(Path.Direction.Up);
                     _isMoving = true;
 
                     _currentPathCreator = _currentPath.GetComponent<PathCreator>();
+                    _currentPathMovementFactor = pathComponent.GetMovementFactor();
+                    _currentDistanceTravelled = pathComponent.GetDistanceTravelled();
+
+                    pathComponent.ReverseMovementFactor();
+                    pathComponent.ReverseDistanceTravelled();
                 }
 
                 _shouldGoDown = false;
@@ -195,10 +216,16 @@ public class PathPlayerController : MonoBehaviour
                 _currentPath = PathManager.Instance.GetPath(Path.Direction.Up);
 
                 if (_currentPath != null) {
-                    _currentPath.GetComponent<Path>().SetDirection(Path.Direction.Down);
+                    Path pathComponent = _currentPath.GetComponent<Path>();
+                    pathComponent.SetDirection(Path.Direction.Down);
                     _isMoving = true;
 
                     _currentPathCreator = _currentPath.GetComponent<PathCreator>();
+                    _currentPathMovementFactor = pathComponent.GetMovementFactor();
+                    _currentDistanceTravelled = pathComponent.GetDistanceTravelled();
+
+                    pathComponent.ReverseMovementFactor();
+                    pathComponent.ReverseDistanceTravelled();
                 }
 
                 _shouldGoUp = false;

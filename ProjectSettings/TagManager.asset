@@ -16,6 +16,7 @@ TagManager:
   - End_Bridge
   - Chest
   - Path
+  - Bridge_Without_Stack
   layers:
   - Default
   - TransparentFX

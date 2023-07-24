@@ -26,17 +26,29 @@ public class PathManager : MonoBehaviour
     }
     public void AddPath(GameObject path) {
 
-        _paths.Add(path);
+        if (!path.GetComponent<Path>().GetIsCollected()) { //if path is not already in the list
 
-        path.GetComponent<Path>().SetIsCollected(true);
+            _paths.Add(path);
+
+            path.GetComponent<Path>().SetIsCollected(true);
+
+        }
+
+        
 
     }
 
     public void RemovePath(GameObject path) {
 
-        _paths.Remove(path);
+        if (path.GetComponent<Path>().GetIsCollected()) { //if path is in the list
 
-        path.GetComponent<Path>().SetIsCollected(false);
+            _paths.Remove(path);
+
+            path.GetComponent<Path>().SetIsCollected(false);
+
+        }
+
+        
     }
 
     public List<GameObject> GetPaths() {
@@ -49,11 +61,11 @@ public class PathManager : MonoBehaviour
 
         for (int i = 0; i < _paths.Count; i++) {
 
-            Debug.Log("name: " + _paths[i].name + " direction: " + _paths[i].GetComponent<Path>().GetDirection());
+            //Debug.Log("name: " + _paths[i].name + " direction: " + _paths[i].GetComponent<Path>().GetDirection());
 
             if (_paths[i].GetComponent<Path>().GetDirection() == direction) {
 
-                Debug.Log("found ya'");
+                //Debug.Log("found ya'");
 
                 return _paths[i];
             }

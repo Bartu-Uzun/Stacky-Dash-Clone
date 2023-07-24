@@ -30,9 +30,12 @@ public class PlayerCollisionHandler : MonoBehaviour
 
                 Debug.Log("added path");
 
-                //PathManager.Instance.AddPath(other.gameObject); //PATHNEW add path if player has access to it
+                PathManager.Instance.AddPath(other.gameObject); //PATHNEW add path if player has access to it
 
-                
+            }
+            else if (other.CompareTag(TagManager.BRIDGE_WO_STACK_TAG)) {
+
+                //LAST WEEK: enter other's path
             }
             else if (other.CompareTag(TagManager.END_BRIDGE_TAG)) {
 
@@ -79,6 +82,10 @@ public class PlayerCollisionHandler : MonoBehaviour
             else if (other.gameObject.CompareTag(TagManager.END_BRIDGE_TAG)) {
                 flag = other.GetComponent<BridgeHandler>().Slide();
             }
+            else if (other.gameObject.CompareTag(TagManager.BRIDGE_WO_STACK_TAG)) {
+
+                //LAST WEEK: SLIDE IN THE BRIDGE IF PLAYER HAS STACK
+            }
 
             if (flag) {
             
@@ -99,11 +106,19 @@ public class PlayerCollisionHandler : MonoBehaviour
         }
         else if (other.CompareTag(TagManager.PATH_TAG)) {
 
-            //PathManager.Instance.RemovePath(other.gameObject); //PATHNEW remove path if player has no access to it
+            Debug.Log("exit path");
+
+            PathManager.Instance.RemovePath(other.gameObject); //PATHNEW remove path if player has no access to it
+        }
+        else if (other.CompareTag(TagManager.BRIDGE_WO_STACK_TAG)) {
+
+            //LAST WEEK: leave the path, if path has a stack now, change its tag
         }
     }
 
     private void OnCollisionEnter(Collision other) {
+
+        Debug.Log("collision with: " + other.gameObject.name);
         
         if (other.gameObject.CompareTag(TagManager.CHEST_TAG)) {
 
