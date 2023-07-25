@@ -1717,7 +1717,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 1
+    vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -4891,9 +4891,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bridges: []
   _currentBridge: {fileID: 0}
+  _edgePath1: {fileID: 1160131932}
+  _edgePath2: {fileID: 0}
   _currentBridgeIndex: 0
   _incrementAmount: 1
-  _isSliding: 0
   _hasStoppedOnBridge: 0
   _isPlayerOnTheBridge: 0
 --- !u!65 &615957073
@@ -10735,7 +10736,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 1
+    vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -10772,7 +10773,7 @@ MonoBehaviour:
   _direction: 4
   _movementFactor: 1
   _distanceTravelledNormal: 0
-  _distanceTravelledReverse: 3.8
+  _distanceTravelledReverse: 2
   _distanceTravelled: 0
 --- !u!1 &1565790399
 GameObject:

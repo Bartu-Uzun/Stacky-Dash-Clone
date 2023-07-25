@@ -57,7 +57,7 @@ public class PlayerCollisionHandler : MonoBehaviour
 
                 //Debug.Log("added path");
 
-                PathManager.Instance.AddPath(other.gameObject); //PATHNEW add path if player has access to it
+                PathManager.Instance.AddPath(other.gameObject); // add path if player has access to it
 
             }
             /*
@@ -182,7 +182,11 @@ public class PlayerCollisionHandler : MonoBehaviour
         yield return new WaitForSeconds(0.05f);
 
         //other.GetComponent<Bridge>().OnEnterBridge();
-        _currentParent.CheckPlayerOnBridge();
+
+        if (_currentParent != null) {
+
+            _currentParent.CheckPlayerOnBridge();
+        }
 
     }
 

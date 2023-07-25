@@ -82,8 +82,6 @@ public class PathPlayerController : MonoBehaviour
 
         if (_currentPath == null) {
 
-            //Debug.Log("i slide on: " + path.transform.parent.name);
-
 
             _currentPath = path;
 
@@ -99,6 +97,39 @@ public class PathPlayerController : MonoBehaviour
             pathComponent.ReverseMovementFactor();
             pathComponent.ReverseDistanceTravelled();
         }
+    }
+
+    public void EndOfBridgeMovement(GameObject edgePath) {
+
+        _currentPath = edgePath;
+
+        Path pathComponent = _currentPath.GetComponent<Path>();
+
+        _isSliding = false;
+        _isMoving = true;
+
+        _currentPathCreator = _currentPath.GetComponent<PathCreator>();
+        _currentPathMovementFactor = pathComponent.GetMovementFactor();
+        _currentDistanceTravelled = pathComponent.GetDistanceTravelled();
+
+        pathComponent.ReverseMovementFactor();
+        pathComponent.ReverseDistanceTravelled();
+
+
+        Path.Direction pathDir = pathComponent.GetDirection();
+        if (pathDir == Path.Direction.Down) {
+            pathComponent.SetDirection(Path.Direction.Up);
+        }
+        else if (pathDir == Path.Direction.Up) {
+            pathComponent.SetDirection(Path.Direction.Down);
+        }
+        else if (pathDir == Path.Direction.Right) {
+            pathComponent.SetDirection(Path.Direction.Left);
+        }
+        else if (pathDir == Path.Direction.Left) {
+            pathComponent.SetDirection(Path.Direction.Right);
+        }
+        
     }
 
     public void Stop() {

@@ -7,10 +7,12 @@ public class BridgeParent : MonoBehaviour
 
     [SerializeField] private Bridge[] _bridges;
     [SerializeField] private Bridge _currentBridge;
+    [SerializeField] private GameObject _edgePath1;
+    [SerializeField] private GameObject _edgePath2;
+
 
     [SerializeField] private int _currentBridgeIndex = 0;
     [SerializeField] private int _incrementAmount = 1;
-    [SerializeField] private bool _isSliding = false;
     [SerializeField] private bool _hasStoppedOnBridge = false;
     [SerializeField] private bool _isPlayerOnTheBridge = false;
 
@@ -21,30 +23,6 @@ public class BridgeParent : MonoBehaviour
     private void Awake() {
         
         _bridges = GetComponentsInChildren<Bridge>();
-    }
-    
-    public void OnEnterBridge() {
-
-        if (!_isPlayerOnTheBridge) {
-
-            Debug.Log("i got in! playeronbridge: " + _isPlayerOnTheBridge);
-
-            _isPlayerOnTheBridge = true;
-
-            //slide on _bridges[0] if player has stack
-            if (!PathPlayerController.Instance.GetIsSliding()) {
-
-                _currentBridge = _bridges[_currentBridgeIndex];
-
-                _currentBridge.SlidePlayerOnBridge();
-
-                _isSliding = true;
-
-                _currentBridgeIndex += _incrementAmount;
-            }
-        }
-
-        
     }
 
     //OnTriggerStay --> CheckPlayerOnBridge()
@@ -61,13 +39,32 @@ public class BridgeParent : MonoBehaviour
 
             _currentBridge.SlidePlayerOnBridge();
 
-            _isSliding = true;
-
             _currentBridgeIndex += _incrementAmount;
+
+            if (_currentBridgeIndex < 0) { //player left the bridge from the first edge
+
+                EndOfBridge(_edgePath1);
+                _currentBridgeIndex = 0;
+            }
+            else if (_currentBridgeIndex >= _bridges.Length) { // player left the bridge from the second edge
+
+                EndOfBridge(_edgePath2);
+
+                _currentBridgeIndex = _bridges.Length - 1;
+            }
 
 
         }
 
+    }
+
+    private void EndOfBridge(GameObject edgePath) {
+
+        _isPlayerOnTheBridge = false;
+
+        PathPlayerController.Instance.EndOfBridgeMovement(edgePath);
+
+        ReverseIncrementAmount();
     }
 
     public void LetPlayerSlide() {
@@ -92,24 +89,15 @@ public class BridgeParent : MonoBehaviour
 
     public void ReCalculateBridgeWhenPlayerStopped() {
 
-        //Debug.Log("im called");
-
         ReverseIncrementAmount();
 
         _currentBridgeIndex += _incrementAmount;
         _currentBridge = _bridges[_currentBridgeIndex];
-
-        _isSliding = false;
     }
 
     public void SetIsPlayerOnTheBridge(bool isPlayerOnTheBridge) {
 
         _isPlayerOnTheBridge = isPlayerOnTheBridge;
-    }
-
-    public void SetIsSliding(bool isSliding) {
-
-        _isSliding = isSliding;
     }
 
     public void ReverseIncrementAmount() {
