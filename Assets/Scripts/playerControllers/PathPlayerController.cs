@@ -82,7 +82,6 @@ public class PathPlayerController : MonoBehaviour
 
         if (_currentPath == null) {
 
-
             _currentPath = path;
 
             Path pathComponent = _currentPath.GetComponent<Path>();

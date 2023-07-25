@@ -28,10 +28,9 @@ public class BridgeParent : MonoBehaviour
     //OnTriggerStay --> CheckPlayerOnBridge()
     public void CheckPlayerOnBridge() {
 
-        _isPlayerOnTheBridge = true;
 
         //if !isSliding --> slide on _bridges[i+1] if player has stack
-        if (!PathPlayerController.Instance.GetHasStoppedOnBridge() && !PathPlayerController.Instance.GetIsSliding() && _currentBridgeIndex < _bridges.Length && _currentBridgeIndex >= 0) {
+        if (_isPlayerOnTheBridge && !PathPlayerController.Instance.GetHasStoppedOnBridge() && !PathPlayerController.Instance.GetIsSliding() && _currentBridgeIndex < _bridges.Length && _currentBridgeIndex >= 0) {
 
             _hasStoppedOnBridge = false;
 
@@ -40,11 +39,13 @@ public class BridgeParent : MonoBehaviour
             _currentBridge.SlidePlayerOnBridge();
 
             _currentBridgeIndex += _incrementAmount;
+            Debug.Log("index incremented");
 
             if (_currentBridgeIndex < 0) { //player left the bridge from the first edge
 
                 EndOfBridge(_edgePath1);
                 _currentBridgeIndex = 0;
+                Debug.Log("index reset");
             }
             else if (_currentBridgeIndex >= _bridges.Length) { // player left the bridge from the second edge
 
@@ -56,6 +57,10 @@ public class BridgeParent : MonoBehaviour
 
         }
 
+    }
+
+    public void PlayerEnteredTheBridge() {
+        _isPlayerOnTheBridge = true;
     }
 
     private void EndOfBridge(GameObject edgePath) {

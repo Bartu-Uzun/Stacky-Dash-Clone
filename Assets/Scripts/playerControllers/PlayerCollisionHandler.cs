@@ -28,6 +28,8 @@ public class PlayerCollisionHandler : MonoBehaviour
                 if (_currentParent == null) {
                     _currentParent = other.GetComponent<BridgeParent>();
 
+                    _currentParent.PlayerEnteredTheBridge();
+
                     _isOnABridge = true;
 
                 }
