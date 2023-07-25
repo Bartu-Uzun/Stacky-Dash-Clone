@@ -43,15 +43,17 @@ public class Bridge : MonoBehaviour
     }
 
     private void StopPlayer() {
-
-        PathPlayerController.Instance.Stop();
-        _parent.SetHasStoppedOnBridge(true);
+        
+        //PathPlayerController.Instance.BridgeStop(_path);
+        _parent.StopPlayer();
+        
 
     }
 
     private void LetPlayerSlide() {
         // move player in the bridge's path
-        PathPlayerController.Instance.SlideOnBridge(_path);
+        //PathPlayerController.Instance.SlideOnBridge(_path);
+        _parent.LetPlayerSlide();
     }
 
     private void AddStackToBridge() {
@@ -62,10 +64,10 @@ public class Bridge : MonoBehaviour
         _hasStack = true;
         _stack.SetActive(true);
     }
-    /*
-    public void OnExitBridge() {
 
-        _parent.SetIsSliding(false);
+    public GameObject GetPath() {
+
+        return _path;
     }
-    */
+    
 }

@@ -53,9 +53,9 @@ public class BridgeParent : MonoBehaviour
         _isPlayerOnTheBridge = true;
 
         //if !isSliding --> slide on _bridges[i+1] if player has stack
-        if (!PathPlayerController.Instance.GetIsSliding() && _currentBridgeIndex < _bridges.Length) {
+        if (!PathPlayerController.Instance.GetHasStoppedOnBridge() && !PathPlayerController.Instance.GetIsSliding() && _currentBridgeIndex < _bridges.Length && _currentBridgeIndex >= 0) {
 
-            Debug.Log("not sliding, so start a new slide");
+            _hasStoppedOnBridge = false;
 
             _currentBridge = _bridges[_currentBridgeIndex];
 
@@ -70,16 +70,36 @@ public class BridgeParent : MonoBehaviour
 
     }
 
-    //if player has already slided on the last bridge, stop, recalculate bridge values
-    private void OnExitBridge() {
+    public void LetPlayerSlide() {
 
+        PathPlayerController.Instance.SlideOnBridge(_currentBridge.GetPath());
+    }
+
+    public void StopPlayer() {
+
+        if (!_hasStoppedOnBridge) {
+
+            _hasStoppedOnBridge = true;
+
+            ReCalculateBridgeWhenPlayerStopped();
+
+            PathPlayerController.Instance.BridgeStop(_currentBridge.GetPath());
+
+        }
+        
 
     }
 
-    public void SetHasStoppedOnBridge(bool hasStoppedOnBridge) {
+    public void ReCalculateBridgeWhenPlayerStopped() {
 
-        _hasStoppedOnBridge = hasStoppedOnBridge;
+        //Debug.Log("im called");
 
+        ReverseIncrementAmount();
+
+        _currentBridgeIndex += _incrementAmount;
+        _currentBridge = _bridges[_currentBridgeIndex];
+
+        _isSliding = false;
     }
 
     public void SetIsPlayerOnTheBridge(bool isPlayerOnTheBridge) {
@@ -91,4 +111,10 @@ public class BridgeParent : MonoBehaviour
 
         _isSliding = isSliding;
     }
+
+    public void ReverseIncrementAmount() {
+
+        _incrementAmount *= -1;
+    }
+    
 }

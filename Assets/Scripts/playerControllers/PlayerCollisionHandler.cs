@@ -6,7 +6,7 @@ using PathCreation;
 public class PlayerCollisionHandler : MonoBehaviour
 {
 
-    private BridgeParent _currentParent; //use to get rid of all of the getcomponent spam
+    [SerializeField] private BridgeParent _currentParent; //use to get rid of all of the getcomponent spam
     private bool _isOnABridge = false;
     private bool _touchedTheEdge = false;
 

@@ -20,14 +20,19 @@ public class PathPlayerController : MonoBehaviour
     [SerializeField] private bool _isMoving = false;
     [SerializeField] private bool _isSliding = false;
 
-    private bool _stoppedOnBridge = false;
+    private bool _hasStoppedOnBridge = false;
     [SerializeField] private float _currentDistanceTravelled;
 
     private float _currentPathMovementFactor;
 
     private GameObject _currentPath;
     [SerializeField] private PathCreator _currentPathCreator;
-    private Vector3 previousPos;
+    private Vector3 _previousPos;
+
+    private MovementDirection _lastMovementDirection;
+
+
+    public enum MovementDirection {Left, Right, Up, Down}
 
     private void Awake() {
         
@@ -38,7 +43,7 @@ public class PathPlayerController : MonoBehaviour
             Instance = this;
         }
 
-        previousPos = transform.position;
+        _previousPos = transform.position;
 
         //DontDestroyOnLoad(gameObject); //NEED TO CHECK
     }
@@ -62,16 +67,12 @@ public class PathPlayerController : MonoBehaviour
 
     private void Move() {
 
-        previousPos = transform.position;
+        _previousPos = transform.position;
         _currentDistanceTravelled += _speed * _currentPathMovementFactor * Time.deltaTime;
         transform.position = _currentPathCreator.path.GetPointAtDistance(_currentDistanceTravelled, EndOfPathInstruction.Stop);
         //transform.rotation = _currentPathCreator.path.GetRotationAtDistance(_currentDistanceTravelled, EndOfPathInstruction.Stop);
 
-        if (_isSliding) {
-
-            Debug.Log("currentdist traveled: " + _currentDistanceTravelled);
-        }
-        if (Vector3.Distance(previousPos, transform.position) <= _threshold) { // player has stopped
+        if (Vector3.Distance(_previousPos, transform.position) <= _threshold) { // player has stopped
             Stop();
         }
 
@@ -81,12 +82,12 @@ public class PathPlayerController : MonoBehaviour
 
         if (_currentPath == null) {
 
-            Debug.Log("i slide on: " + path.gameObject.transform.parent.name);
+            //Debug.Log("i slide on: " + path.transform.parent.name);
+
 
             _currentPath = path;
 
             Path pathComponent = _currentPath.GetComponent<Path>();
-            // pathComponent.SetDirection(Path.Direction.Right); might need a new enum val for bridges that stays constant
                 
             _isSliding = true;
             _isMoving = true;
@@ -95,14 +96,12 @@ public class PathPlayerController : MonoBehaviour
             _currentPathMovementFactor = pathComponent.GetMovementFactor();
             _currentDistanceTravelled = pathComponent.GetDistanceTravelled();
 
-            //pathComponent.ReverseMovementFactor();
-            //pathComponent.ReverseDistanceTravelled();
+            pathComponent.ReverseMovementFactor();
+            pathComponent.ReverseDistanceTravelled();
         }
     }
 
     public void Stop() {
-
-        //Debug.Log("STOPP");
 
         _shouldGoDown = false;
         _shouldGoLeft = false;
@@ -119,19 +118,22 @@ public class PathPlayerController : MonoBehaviour
     }
 
     // called whenever player should stop on a bridge
-    public void BridgeStop() {
-         _shouldGoDown = false;
+    public void BridgeStop(GameObject path) {
+        
+        _shouldGoDown = false;
         _shouldGoLeft = false;
         _shouldGoRight = false;
         _shouldGoUp = false;
 
         _isMoving = false;
+        _isSliding = false;
 
-        _currentPathCreator = null;
+        // We preserve the _currentPath
+        
+        _currentPath = path;
+        _currentPathCreator = _currentPath.GetComponent<PathCreator>();
 
-        //might use distance travelled to start back from the bridge??
-
-        _stoppedOnBridge = true;
+        _hasStoppedOnBridge = true;
     }
 
     private void ReadInput()
@@ -139,7 +141,7 @@ public class PathPlayerController : MonoBehaviour
 
         if (!_isMoving) {
 
-            if (!_stoppedOnBridge) { //player did not stop on the bridge
+            if (!_hasStoppedOnBridge) { //player did not stop on the bridge
 
                 //read inputs
                 if (!_shouldGoLeft)
@@ -162,7 +164,26 @@ public class PathPlayerController : MonoBehaviour
                     _shouldGoUp = Input.GetKeyDown(KeyCode.UpArrow) || MobileInput.Instance.swipeUp;
                 }
 
-            }            
+            }
+            else { // player has stopped on a bridge
+
+                if (_lastMovementDirection == MovementDirection.Right && !_shouldGoLeft) { // if last movement was right, player can move left
+
+                    _shouldGoLeft = Input.GetKeyDown(KeyCode.LeftArrow) || MobileInput.Instance.swipeLeft;
+                }
+                if (_lastMovementDirection == MovementDirection.Left && !_shouldGoRight) { // if last movement was left, player can move right
+                    
+                    _shouldGoRight = Input.GetKeyDown(KeyCode.RightArrow) || MobileInput.Instance.swipeRight;
+                }
+                if (_lastMovementDirection == MovementDirection.Up && !_shouldGoDown) { // if last movement was up, player can move down
+
+                    _shouldGoDown = Input.GetKeyDown(KeyCode.DownArrow) || MobileInput.Instance.swipeDown;
+                }
+                if (_lastMovementDirection == MovementDirection.Down && !_shouldGoUp) { // if last movement was down, player can move up
+
+                    _shouldGoUp = Input.GetKeyDown(KeyCode.UpArrow) || MobileInput.Instance.swipeUp;
+                }
+            }
 
         }
         
@@ -178,88 +199,163 @@ public class PathPlayerController : MonoBehaviour
 
         if (!_isMoving) {
 
-            // find movement direction, set path accordingly, update path's allowed direction
-            if (_shouldGoLeft) {
+            if (_hasStoppedOnBridge) {
 
-                _currentPath = PathManager.Instance.GetPath(Path.Direction.Left);
+                if (_shouldGoLeft) {
 
-                if (_currentPath != null) {
                     Path pathComponent = _currentPath.GetComponent<Path>();
-                    pathComponent.SetDirection(Path.Direction.Right);
+                    _currentPathMovementFactor = pathComponent.GetMovementFactor();
+                    _currentDistanceTravelled = pathComponent.GetDistanceTravelled();
+
+                    pathComponent.ReverseMovementFactor();
+                    pathComponent.ReverseDistanceTravelled();
+
+                    _isMoving = true;
+                    _isSliding = true;
+                    _shouldGoLeft = false;
+                    _hasStoppedOnBridge = false;
+
+                }
+                if (_shouldGoRight) {
+
+                    Path pathComponent = _currentPath.GetComponent<Path>();
+                    _currentPathMovementFactor = pathComponent.GetMovementFactor();
+                    _currentDistanceTravelled = pathComponent.GetDistanceTravelled();
+
+                    pathComponent.ReverseMovementFactor();
+                    pathComponent.ReverseDistanceTravelled();
+
+                    _isMoving = true;
+                    _isSliding = true;
+                    _shouldGoRight = false;
+                    _hasStoppedOnBridge = false;
+
+                }
+                if (_shouldGoDown) {
+
+                    Path pathComponent = _currentPath.GetComponent<Path>();
+                    _currentPathMovementFactor = pathComponent.GetMovementFactor();
+                    _currentDistanceTravelled = pathComponent.GetDistanceTravelled();
+
+                    pathComponent.ReverseMovementFactor();
+                    pathComponent.ReverseDistanceTravelled();
+
+                    _isMoving = true;
+                    _isSliding = true;
+                    _shouldGoDown = false;
+                    _hasStoppedOnBridge = false;
+
+                }
+                if (_shouldGoUp) {
+
+                    Path pathComponent = _currentPath.GetComponent<Path>();
+                    _currentPathMovementFactor = pathComponent.GetMovementFactor();
+                    _currentDistanceTravelled = pathComponent.GetDistanceTravelled();
+
+                    pathComponent.ReverseMovementFactor();
+                    pathComponent.ReverseDistanceTravelled();
+
+                    _isMoving = true;
+                    _isSliding = true;
+                    _shouldGoUp = false;
+                    _hasStoppedOnBridge = false;
+
+                }
+
+            }
+            else {
+
+                // find movement direction, set path accordingly, update path's allowed direction
+                if (_shouldGoLeft) {
+
+                    _lastMovementDirection = MovementDirection.Left; // save lastPressedKey value
+
+                    _currentPath = PathManager.Instance.GetPath(Path.Direction.Left);
+
+                    if (_currentPath != null) {
+                        Path pathComponent = _currentPath.GetComponent<Path>();
+                        pathComponent.SetDirection(Path.Direction.Right);
+                        
+                        
+                        _isMoving = true;
+
+                        _currentPathCreator = _currentPath.GetComponent<PathCreator>();
+                        _currentPathMovementFactor = pathComponent.GetMovementFactor();
+                        _currentDistanceTravelled = pathComponent.GetDistanceTravelled();
+
+                        pathComponent.ReverseMovementFactor();
+                        pathComponent.ReverseDistanceTravelled();
+                    }
                     
+
+                    _shouldGoLeft = false;
+                }
+                if (_shouldGoRight) {
+
+                    _lastMovementDirection = MovementDirection.Right; // save lastPressedKey value
+
+                    _currentPath = PathManager.Instance.GetPath(Path.Direction.Right);
+
+                    if (_currentPath != null) {
+                        Path pathComponent = _currentPath.GetComponent<Path>();
+                        pathComponent.SetDirection(Path.Direction.Left);
+                        _isMoving = true;
+
+                        _currentPathCreator = _currentPath.GetComponent<PathCreator>();
+                        _currentPathMovementFactor = pathComponent.GetMovementFactor();
+                        _currentDistanceTravelled = pathComponent.GetDistanceTravelled();
+
+                        pathComponent.ReverseMovementFactor();
+                        pathComponent.ReverseDistanceTravelled();
+                    }
                     
-                    _isMoving = true;
 
-                    _currentPathCreator = _currentPath.GetComponent<PathCreator>();
-                    _currentPathMovementFactor = pathComponent.GetMovementFactor();
-                    _currentDistanceTravelled = pathComponent.GetDistanceTravelled();
-
-                    pathComponent.ReverseMovementFactor();
-                    pathComponent.ReverseDistanceTravelled();
+                    _shouldGoRight = false;
                 }
-                
+                if (_shouldGoDown) {
 
-                _shouldGoLeft = false;
-            }
-            if (_shouldGoRight) {
+                    _lastMovementDirection = MovementDirection.Down; // save lastPressedKey value
 
-                _currentPath = PathManager.Instance.GetPath(Path.Direction.Right);
+                    _currentPath = PathManager.Instance.GetPath(Path.Direction.Down);
 
-                if (_currentPath != null) {
-                    Path pathComponent = _currentPath.GetComponent<Path>();
-                    pathComponent.SetDirection(Path.Direction.Left);
-                    _isMoving = true;
+                    if (_currentPath != null) {
+                        Path pathComponent = _currentPath.GetComponent<Path>();
+                        pathComponent.SetDirection(Path.Direction.Up);
+                        _isMoving = true;
 
-                    _currentPathCreator = _currentPath.GetComponent<PathCreator>();
-                    _currentPathMovementFactor = pathComponent.GetMovementFactor();
-                    _currentDistanceTravelled = pathComponent.GetDistanceTravelled();
+                        _currentPathCreator = _currentPath.GetComponent<PathCreator>();
+                        _currentPathMovementFactor = pathComponent.GetMovementFactor();
+                        _currentDistanceTravelled = pathComponent.GetDistanceTravelled();
 
-                    pathComponent.ReverseMovementFactor();
-                    pathComponent.ReverseDistanceTravelled();
+                        pathComponent.ReverseMovementFactor();
+                        pathComponent.ReverseDistanceTravelled();
+                    }
+
+                    _shouldGoDown = false;
+                    
                 }
-                
+                if (_shouldGoUp) {
 
-                _shouldGoRight = false;
-            }
-            if (_shouldGoDown) {
+                    _lastMovementDirection = MovementDirection.Up; // save lastPressedKey value
 
-                _currentPath = PathManager.Instance.GetPath(Path.Direction.Down);
+                    _currentPath = PathManager.Instance.GetPath(Path.Direction.Up);
 
-                if (_currentPath != null) {
-                    Path pathComponent = _currentPath.GetComponent<Path>();
-                    pathComponent.SetDirection(Path.Direction.Up);
-                    _isMoving = true;
+                    if (_currentPath != null) {
+                        Path pathComponent = _currentPath.GetComponent<Path>();
+                        pathComponent.SetDirection(Path.Direction.Down);
+                        _isMoving = true;
 
-                    _currentPathCreator = _currentPath.GetComponent<PathCreator>();
-                    _currentPathMovementFactor = pathComponent.GetMovementFactor();
-                    _currentDistanceTravelled = pathComponent.GetDistanceTravelled();
+                        _currentPathCreator = _currentPath.GetComponent<PathCreator>();
+                        _currentPathMovementFactor = pathComponent.GetMovementFactor();
+                        _currentDistanceTravelled = pathComponent.GetDistanceTravelled();
 
-                    pathComponent.ReverseMovementFactor();
-                    pathComponent.ReverseDistanceTravelled();
+                        pathComponent.ReverseMovementFactor();
+                        pathComponent.ReverseDistanceTravelled();
+                    }
+
+                    _shouldGoUp = false;
+                    
                 }
-
-                _shouldGoDown = false;
-                
-            }
-            if (_shouldGoUp) {
-
-                _currentPath = PathManager.Instance.GetPath(Path.Direction.Up);
-
-                if (_currentPath != null) {
-                    Path pathComponent = _currentPath.GetComponent<Path>();
-                    pathComponent.SetDirection(Path.Direction.Down);
-                    _isMoving = true;
-
-                    _currentPathCreator = _currentPath.GetComponent<PathCreator>();
-                    _currentPathMovementFactor = pathComponent.GetMovementFactor();
-                    _currentDistanceTravelled = pathComponent.GetDistanceTravelled();
-
-                    pathComponent.ReverseMovementFactor();
-                    pathComponent.ReverseDistanceTravelled();
-                }
-
-                _shouldGoUp = false;
-                
             }
             
             
@@ -269,5 +365,9 @@ public class PathPlayerController : MonoBehaviour
     public bool GetIsSliding() {
 
         return _isSliding;
+    }
+    public bool GetHasStoppedOnBridge() {
+
+        return _hasStoppedOnBridge;
     }
 }
