@@ -19,6 +19,7 @@ public static class TagManager
     public const string CHEST_TAG = "Chest";
     public const string PATH_TAG = "Path"; // PATHNEW
     public const string BRIDGE_WO_STACK_TAG = "Bridge_Without_Stack";
+    public const string BRIDGE_EDGE_TAG = "Bridge_Edge";
 
     public const string GREAT_WIN_PARAM = "greatWin";
     public const string NORMAL_WIN_PARAM = "normalWin";

@@ -6,7 +6,10 @@ using PathCreation;
 public class PlayerCollisionHandler : MonoBehaviour
 {
 
-    private bool flag = false;
+    private BridgeParent _currentParent; //use to get rid of all of the getcomponent spam
+    private bool _isOnABridge = false;
+    private bool _touchedTheEdge = false;
+
     private void OnTriggerEnter(Collider other) {
 
         if (!GameManager.Instance.GetLevelFinished()) {
@@ -18,19 +21,36 @@ public class PlayerCollisionHandler : MonoBehaviour
                 ScoreHandler.Instance.IncrementScore();
 
             }
+            else if (other.CompareTag(TagManager.BRIDGE_EDGE_TAG) && !_touchedTheEdge) {
 
-            else if (other.CompareTag(TagManager.BRIDGE_TAG) && !other.GetComponent<Bridge>().GetIsPlayerOn()) {
+                
 
-                //CamFollowPlayer.Instance.SetIsOnBridge(true); // alert camera
+                if (_currentParent == null) {
+                    _currentParent = other.GetComponent<BridgeParent>();
 
-                //StartCoroutine(EnterBridge(other, false)); // player is not on end_platform OLD VERSION
+                    _isOnABridge = true;
 
+                }
+                else {
+                    _currentParent = null;
+                    _isOnABridge = false;
+                }
+                
+                _touchedTheEdge = true;
+                StartCoroutine(EdgeCoroutine());
+            }
 
-                other.GetComponent<Bridge>().SetIsPlayerOn(true);
+            else if (other.CompareTag(TagManager.BRIDGE_TAG)) {
 
-                Debug.Log("i enter: " + other.gameObject.transform.parent.name);
+                //Debug.Log("i enter: " + other.gameObject.transform.parent.name);
 
-                StartCoroutine(EnterBridge(other));
+                if (_currentParent != null) {
+
+                    //Debug.Log("i have a parent");
+                    StartCoroutine(EnterBridge(other));
+
+                }
+                
                 
             }
             else if (other.CompareTag(TagManager.PATH_TAG)) {
@@ -100,18 +120,34 @@ public class PlayerCollisionHandler : MonoBehaviour
     }
     */
 
+    private void OnTriggerStay(Collider other) {
+        
+        if (!GameManager.Instance.GetLevelFinished()) { //if level has not finished yet
+
+            if (other.gameObject.CompareTag(TagManager.BRIDGE_TAG)) {
+
+                if (_currentParent != null) {
+
+                    //_currentParent.CheckPlayerOnBridge();
+                    StartCoroutine(EnterBridge(other));
+
+                }
+
+                
+            }
+        }
+    }
+
     private void OnTriggerExit(Collider other) {
         
         
-        if (other.CompareTag(TagManager.BRIDGE_TAG) && other.GetComponent<Bridge>().GetIsPlayerOn()) {
+        if (other.CompareTag(TagManager.BRIDGE_TAG)) {
 
             //CamFollowPlayer.Instance.SetIsOnBridge(false); // alert camera
 
-            //other.GetComponent<BridgeHandler>().OnTriggerExitBridge(); OLD VERSION
+            //Debug.Log("i exit: " + other.gameObject.transform.parent.name);
 
-            Debug.Log("i exit: " + other.gameObject.transform.parent.name);
-
-            //other.GetComponent<Bridge>().OnExitBridge();
+            
         } 
         if (other.CompareTag(TagManager.PATH_TAG)) {
 
@@ -133,12 +169,20 @@ public class PlayerCollisionHandler : MonoBehaviour
         }
         
     }
+
+    private IEnumerator EdgeCoroutine() {
+
+        yield return new WaitForSeconds(0.1f);
+
+        _touchedTheEdge = false;
+    }
     
     private IEnumerator EnterBridge(Collider other) {
         
         yield return new WaitForSeconds(0.05f);
 
-        other.GetComponent<Bridge>().OnEnterBridge();
+        //other.GetComponent<Bridge>().OnEnterBridge();
+        _currentParent.CheckPlayerOnBridge();
 
     }
 

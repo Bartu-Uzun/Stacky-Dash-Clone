@@ -67,7 +67,10 @@ public class PathPlayerController : MonoBehaviour
         transform.position = _currentPathCreator.path.GetPointAtDistance(_currentDistanceTravelled, EndOfPathInstruction.Stop);
         //transform.rotation = _currentPathCreator.path.GetRotationAtDistance(_currentDistanceTravelled, EndOfPathInstruction.Stop);
 
+        if (_isSliding) {
 
+            Debug.Log("currentdist traveled: " + _currentDistanceTravelled);
+        }
         if (Vector3.Distance(previousPos, transform.position) <= _threshold) { // player has stopped
             Stop();
         }
@@ -76,22 +79,25 @@ public class PathPlayerController : MonoBehaviour
 
     public void SlideOnBridge(GameObject path) {
 
-        Debug.Log("i slide on: " + path.gameObject.transform.parent.name);
+        if (_currentPath == null) {
 
-        _currentPath = path;
+            Debug.Log("i slide on: " + path.gameObject.transform.parent.name);
 
-        Path pathComponent = _currentPath.GetComponent<Path>();
-        // pathComponent.SetDirection(Path.Direction.Right); might need a new enum val for bridges that stays constant
-            
-        _isSliding = true;
-        _isMoving = true;
+            _currentPath = path;
 
-        _currentPathCreator = _currentPath.GetComponent<PathCreator>();
-        _currentPathMovementFactor = pathComponent.GetMovementFactor();
-        _currentDistanceTravelled = pathComponent.GetDistanceTravelled();
+            Path pathComponent = _currentPath.GetComponent<Path>();
+            // pathComponent.SetDirection(Path.Direction.Right); might need a new enum val for bridges that stays constant
+                
+            _isSliding = true;
+            _isMoving = true;
 
-        pathComponent.ReverseMovementFactor();
-        pathComponent.ReverseDistanceTravelled();
+            _currentPathCreator = _currentPath.GetComponent<PathCreator>();
+            _currentPathMovementFactor = pathComponent.GetMovementFactor();
+            _currentDistanceTravelled = pathComponent.GetDistanceTravelled();
+
+            //pathComponent.ReverseMovementFactor();
+            //pathComponent.ReverseDistanceTravelled();
+        }
     }
 
     public void Stop() {
