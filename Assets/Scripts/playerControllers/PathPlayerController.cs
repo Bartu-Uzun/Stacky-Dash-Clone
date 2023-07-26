@@ -190,7 +190,7 @@ public class PathPlayerController : MonoBehaviour
             reverseDirection = Path.Direction.Down;
         }
 
-        SetPlatformPathComponent(checkDirection, reverseDirection);
+        SetPlatformPathComponent(checkDirection, reverseDirection, true);
     }
 
     // called whenever player should stop on a bridge
@@ -316,7 +316,7 @@ public class PathPlayerController : MonoBehaviour
 
                     _lastMovementDirection = MovementDirection.Left; // save lastPressedKey value
 
-                    SetPlatformPathComponent(Path.Direction.Left, Path.Direction.Right);
+                    SetPlatformPathComponent(Path.Direction.Left, Path.Direction.Right, false);
 
                     _shouldGoLeft = false;
                 }
@@ -324,7 +324,7 @@ public class PathPlayerController : MonoBehaviour
 
                     _lastMovementDirection = MovementDirection.Right; // save lastPressedKey value
 
-                    SetPlatformPathComponent(Path.Direction.Right, Path.Direction.Left);
+                    SetPlatformPathComponent(Path.Direction.Right, Path.Direction.Left, false);
                     
 
                     _shouldGoRight = false;
@@ -333,7 +333,7 @@ public class PathPlayerController : MonoBehaviour
 
                     _lastMovementDirection = MovementDirection.Down; // save lastPressedKey value
 
-                    SetPlatformPathComponent(Path.Direction.Down, Path.Direction.Up);
+                    SetPlatformPathComponent(Path.Direction.Down, Path.Direction.Up, false);
 
                     _shouldGoDown = false;
                     
@@ -342,7 +342,7 @@ public class PathPlayerController : MonoBehaviour
 
                     _lastMovementDirection = MovementDirection.Up; // save lastPressedKey value
 
-                    SetPlatformPathComponent(Path.Direction.Up, Path.Direction.Down);
+                    SetPlatformPathComponent(Path.Direction.Up, Path.Direction.Down, false);
 
                     _shouldGoUp = false;
                     
@@ -362,10 +362,10 @@ public class PathPlayerController : MonoBehaviour
         _hasStoppedOnBridge = false;
     }
 
-    private void SetPlatformPathComponent(Path.Direction direction, Path.Direction reverseDirection)
+    private void SetPlatformPathComponent(Path.Direction direction, Path.Direction reverseDirection, bool isFollowUp)
     {
 
-        _currentPath = PathManager.Instance.GetPath(direction);
+        _currentPath = PathManager.Instance.GetPath(direction, reverseDirection, isFollowUp);
 
         if (_currentPath != null) {
 

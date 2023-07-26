@@ -289,9 +289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 2
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 9.5
   _distanceTravelled: 0
@@ -421,9 +420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -548,6 +546,123 @@ Transform:
   m_Father: {fileID: 1033040309}
   m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &31081043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 31081047}
+  - component: {fileID: 31081046}
+  - component: {fileID: 31081045}
+  - component: {fileID: 31081044}
+  m_Layer: 0
+  m_Name: platformpath_31
+  m_TagString: Path
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &31081044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31081043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isTwoSided: 0
+  _direction: 0
+  _distanceTravelledNormal: 0
+  _distanceTravelledReverse: 9.5
+  _distanceTravelled: 0
+--- !u!65 &31081045
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31081043}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 13.440441, y: 1.3, z: 3}
+  m_Center: {x: 4.7983465, y: 0, z: 0}
+--- !u!114 &31081046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31081043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5ac92bc18f545cc84cd886ece82b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editorData:
+    _bezierPath:
+      points:
+      - {x: -0.2225182, y: -0.00001335144, z: -0.0002593994}
+      - {x: 2.9842443, y: -0.000022888184, z: -0.001373291}
+      - {x: 6.3267145, y: -0.0081272125, z: 0.018293858}
+      - {x: 9.60101, y: 0.000041007996, z: 0.0010223389}
+      isClosed: 0
+      space: 0
+      controlMode: 0
+      autoControlLength: 0.3
+      boundsUpToDate: 0
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+      perAnchorNormalsAngle:
+      - 0
+      - 0
+      globalNormalsAngle: 0
+      flipNormals: 0
+    vertexPathUpToDate: 1
+    vertexPathMaxAngleError: 0.3
+    vertexPathMinVertexSpacing: 0.01
+    showTransformTool: 1
+    showPathBounds: 0
+    showPerSegmentBounds: 0
+    displayAnchorPoints: 1
+    displayControlPoints: 1
+    bezierHandleScale: 5
+    globalDisplaySettingsFoldout: 0
+    keepConstantHandleSize: 0
+    showNormalsInVertexMode: 0
+    showBezierPathInVertexMode: 0
+    showDisplayOptions: 1
+    showPathOptions: 1
+    showVertexPathDisplayOptions: 0
+    showVertexPathOptions: 1
+    showNormals: 0
+    showNormalsHelpInfo: 0
+    tabIndex: 0
+  initialized: 1
+--- !u!4 &31081047
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31081043}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 3.61, y: 1.1726322, z: 174.18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &34461330
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,9 +742,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -717,9 +831,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 2
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 6.5
   _distanceTravelled: 0
@@ -849,9 +962,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -1067,9 +1179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -1399,9 +1510,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -1503,9 +1613,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -1593,9 +1702,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 0
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 6.5
   _distanceTravelled: 0
@@ -2093,9 +2201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 2
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 12.5
   _distanceTravelled: 0
@@ -2570,9 +2677,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -2788,9 +2894,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -2847,6 +2952,123 @@ MonoBehaviour:
     showNormalsHelpInfo: 0
     tabIndex: 0
   initialized: 1
+--- !u!1 &174605485
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 174605489}
+  - component: {fileID: 174605488}
+  - component: {fileID: 174605487}
+  - component: {fileID: 174605486}
+  m_Layer: 0
+  m_Name: platformpath_30
+  m_TagString: Path
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &174605486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174605485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isTwoSided: 1
+  _direction: 1
+  _distanceTravelledNormal: 0
+  _distanceTravelledReverse: 3.5
+  _distanceTravelled: 0
+--- !u!65 &174605487
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174605485}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.5224595, y: 1.3, z: 3}
+  m_Center: {x: 1.3393555, y: 0, z: 1.4210855e-14}
+--- !u!114 &174605488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174605485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5ac92bc18f545cc84cd886ece82b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editorData:
+    _bezierPath:
+      points:
+      - {x: -0.14616942, y: 0, z: 0.00015258789}
+      - {x: 3.0802038, y: 0, z: 0.00015258789}
+      - {x: -0.17352462, y: -0.008164406, z: 0.017088413}
+      - {x: 3.1007712, y: 0.0000038146973, z: -0.00018310547}
+      isClosed: 0
+      space: 0
+      controlMode: 0
+      autoControlLength: 0.3
+      boundsUpToDate: 0
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+      perAnchorNormalsAngle:
+      - 0
+      - 0
+      globalNormalsAngle: 0
+      flipNormals: 0
+    vertexPathUpToDate: 1
+    vertexPathMaxAngleError: 0.3
+    vertexPathMinVertexSpacing: 0.01
+    showTransformTool: 1
+    showPathBounds: 0
+    showPerSegmentBounds: 0
+    displayAnchorPoints: 1
+    displayControlPoints: 1
+    bezierHandleScale: 5
+    globalDisplaySettingsFoldout: 0
+    keepConstantHandleSize: 0
+    showNormalsInVertexMode: 0
+    showBezierPathInVertexMode: 0
+    showDisplayOptions: 1
+    showPathOptions: 1
+    showVertexPathDisplayOptions: 0
+    showVertexPathOptions: 1
+    showNormals: 0
+    showNormalsHelpInfo: 0
+    tabIndex: 0
+  initialized: 1
+--- !u!4 &174605489
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174605485}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.86, y: 1.1726322, z: 174.18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &182706862
 GameObject:
   m_ObjectHideFlags: 0
@@ -2892,9 +3114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -3341,9 +3562,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -3445,9 +3665,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -3746,9 +3965,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -3984,9 +4202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 3
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 9.5
   _distanceTravelled: 0
@@ -4520,9 +4737,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 2
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 6.5
   _distanceTravelled: 0
@@ -4932,9 +5148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -5070,9 +5285,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -5174,9 +5388,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -5703,9 +5916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -5908,9 +6120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 2
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 12.5
   _distanceTravelled: 0
@@ -5993,9 +6204,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -7192,9 +7402,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -7296,9 +7505,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -7514,9 +7722,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -7618,9 +7825,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -7957,9 +8163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 1
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 9.5
   _distanceTravelled: 0
@@ -8203,9 +8408,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -8520,9 +8724,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -8711,9 +8914,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -8815,9 +9017,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -8953,9 +9154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -9468,9 +9668,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 0
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 3.5
   _distanceTravelled: 0
@@ -9600,9 +9799,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -9704,9 +9902,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -9842,9 +10039,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -11363,6 +11559,123 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66a2149a34d004f38a704c3f946c83b2, type: 3}
+--- !u!1 &662121742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 662121746}
+  - component: {fileID: 662121745}
+  - component: {fileID: 662121744}
+  - component: {fileID: 662121743}
+  m_Layer: 0
+  m_Name: platformpath_26
+  m_TagString: Path
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &662121743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662121742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isTwoSided: 0
+  _direction: 2
+  _distanceTravelledNormal: 0
+  _distanceTravelledReverse: 9.5
+  _distanceTravelled: 0
+--- !u!65 &662121744
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662121742}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.788968, y: 1.3, z: 3}
+  m_Center: {x: 4.4726105, y: 0, z: 0}
+--- !u!114 &662121745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662121742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5ac92bc18f545cc84cd886ece82b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editorData:
+    _bezierPath:
+      points:
+      - {x: -0.24482724, y: 0, z: 0.00015643235}
+      - {x: 3.0551567, y: 0, z: 0.00015643235}
+      - {x: 5.9339743, y: -0.008164404, z: 0.017087217}
+      - {x: 9.290603, y: 0.0000038146964, z: -0.00018215175}
+      isClosed: 0
+      space: 0
+      controlMode: 0
+      autoControlLength: 0.3
+      boundsUpToDate: 0
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+      perAnchorNormalsAngle:
+      - 0
+      - 0
+      globalNormalsAngle: 0
+      flipNormals: 0
+    vertexPathUpToDate: 1
+    vertexPathMaxAngleError: 0.3
+    vertexPathMinVertexSpacing: 0.01
+    showTransformTool: 1
+    showPathBounds: 0
+    showPerSegmentBounds: 0
+    displayAnchorPoints: 1
+    displayControlPoints: 1
+    bezierHandleScale: 5
+    globalDisplaySettingsFoldout: 0
+    keepConstantHandleSize: 0
+    showNormalsInVertexMode: 0
+    showBezierPathInVertexMode: 0
+    showDisplayOptions: 1
+    showPathOptions: 1
+    showVertexPathDisplayOptions: 0
+    showVertexPathOptions: 1
+    showNormals: 0
+    showNormalsHelpInfo: 0
+    tabIndex: 0
+  initialized: 1
+--- !u!4 &662121746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662121742}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalPosition: {x: 6.87, y: 1.1726322, z: 164.85}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!1 &686154830
 GameObject:
   m_ObjectHideFlags: 0
@@ -11408,9 +11721,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -11512,9 +11824,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -11858,9 +12169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -12362,9 +12672,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -12550,9 +12859,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 2
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 17.5
   _distanceTravelled: 0
@@ -13725,9 +14033,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 0
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 12.5
   _distanceTravelled: 0
@@ -13974,9 +14281,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -14078,9 +14384,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -14182,9 +14487,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -14631,9 +14935,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -14932,9 +15235,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -15468,9 +15770,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -15558,9 +15859,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 2
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 12.5
   _distanceTravelled: 0
@@ -16187,9 +16487,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -16291,9 +16590,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -16999,9 +17297,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 0
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 6.5
   _distanceTravelled: 0
@@ -17131,9 +17428,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -17318,9 +17614,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -17505,9 +17800,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -17906,9 +18200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 2
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 6.5
   _distanceTravelled: 0
@@ -18107,6 +18400,123 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1162575929}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1169018599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1169018603}
+  - component: {fileID: 1169018602}
+  - component: {fileID: 1169018601}
+  - component: {fileID: 1169018600}
+  m_Layer: 0
+  m_Name: platformpath_29
+  m_TagString: Path
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1169018600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169018599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isTwoSided: 1
+  _direction: 3
+  _distanceTravelledNormal: 0
+  _distanceTravelledReverse: 3.5
+  _distanceTravelled: 0
+--- !u!65 &1169018601
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169018599}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.5224595, y: 1.3, z: 3}
+  m_Center: {x: 1.3393555, y: 0, z: 1.4210855e-14}
+--- !u!114 &1169018602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169018599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5ac92bc18f545cc84cd886ece82b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editorData:
+    _bezierPath:
+      points:
+      - {x: -0.3022308, y: 0, z: 0.00015637274}
+      - {x: 2.9977531, y: 0, z: 0.00015637274}
+      - {x: -0.30529782, y: -0.00832939, z: 0.01708385}
+      - {x: 3.1143186, y: 0.0000038146964, z: -0.00018167491}
+      isClosed: 0
+      space: 0
+      controlMode: 0
+      autoControlLength: 0.3
+      boundsUpToDate: 0
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+      perAnchorNormalsAngle:
+      - 0
+      - 0
+      globalNormalsAngle: 0
+      flipNormals: 0
+    vertexPathUpToDate: 1
+    vertexPathMaxAngleError: 0.3
+    vertexPathMinVertexSpacing: 0.01
+    showTransformTool: 1
+    showPathBounds: 0
+    showPerSegmentBounds: 0
+    displayAnchorPoints: 1
+    displayControlPoints: 1
+    bezierHandleScale: 5
+    globalDisplaySettingsFoldout: 0
+    keepConstantHandleSize: 0
+    showNormalsInVertexMode: 0
+    showBezierPathInVertexMode: 0
+    showDisplayOptions: 1
+    showPathOptions: 1
+    showVertexPathDisplayOptions: 0
+    showVertexPathOptions: 1
+    showNormals: 0
+    showNormalsHelpInfo: 0
+    tabIndex: 0
+  initialized: 1
+--- !u!4 &1169018603
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169018599}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 3.7, y: 1.1726322, z: 177.28}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1187840960
 GameObject:
   m_ObjectHideFlags: 0
@@ -18138,9 +18548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 1
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 9.5
   _distanceTravelled: 0
@@ -18787,9 +19196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 0
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 9.5
   _distanceTravelled: 0
@@ -20425,6 +20833,123 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1348644766}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1348852772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1348852776}
+  - component: {fileID: 1348852775}
+  - component: {fileID: 1348852774}
+  - component: {fileID: 1348852773}
+  m_Layer: 0
+  m_Name: platformpath_25
+  m_TagString: Path
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1348852773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348852772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isTwoSided: 0
+  _direction: 3
+  _distanceTravelledNormal: 0
+  _distanceTravelledReverse: 6.5
+  _distanceTravelled: 0
+--- !u!65 &1348852774
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348852772}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.764814, y: 1.3, z: 3}
+  m_Center: {x: 2.9605331, y: 0, z: -2.842171e-14}
+--- !u!114 &1348852775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348852772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5ac92bc18f545cc84cd886ece82b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editorData:
+    _bezierPath:
+      points:
+      - {x: -0.24482724, y: 0, z: 0.00015643235}
+      - {x: 3.0551567, y: 0, z: 0.00015643235}
+      - {x: 2.9640346, y: -0.008165358, z: 0.01725411}
+      - {x: 6.320663, y: 0.0000028610223, z: -0.000015258785}
+      isClosed: 0
+      space: 0
+      controlMode: 0
+      autoControlLength: 0.3
+      boundsUpToDate: 0
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+      perAnchorNormalsAngle:
+      - 0
+      - 0
+      globalNormalsAngle: 0
+      flipNormals: 0
+    vertexPathUpToDate: 1
+    vertexPathMaxAngleError: 0.3
+    vertexPathMinVertexSpacing: 0.01
+    showTransformTool: 1
+    showPathBounds: 0
+    showPerSegmentBounds: 0
+    displayAnchorPoints: 1
+    displayControlPoints: 1
+    bezierHandleScale: 5
+    globalDisplaySettingsFoldout: 0
+    keepConstantHandleSize: 0
+    showNormalsInVertexMode: 0
+    showBezierPathInVertexMode: 0
+    showDisplayOptions: 1
+    showPathOptions: 1
+    showVertexPathDisplayOptions: 0
+    showVertexPathOptions: 1
+    showNormals: 0
+    showNormalsHelpInfo: 0
+    tabIndex: 0
+  initialized: 1
+--- !u!4 &1348852776
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348852772}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 6.87, y: 1.1726322, z: 164.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1357889906
 GameObject:
   m_ObjectHideFlags: 0
@@ -20470,9 +20995,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -21286,9 +21810,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -21875,9 +22398,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 2
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 17.5
   _distanceTravelled: 0
@@ -22256,9 +22778,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -22360,9 +22881,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -22975,9 +23495,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -23230,9 +23749,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -23582,9 +24100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 1
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 6.5
   _distanceTravelled: 0
@@ -23976,9 +24493,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -24576,9 +25092,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 1
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 9.5
   _distanceTravelled: 0
@@ -24975,9 +25490,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -25156,6 +25670,123 @@ Transform:
   m_Father: {fileID: 643012766}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1813128226
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1813128230}
+  - component: {fileID: 1813128229}
+  - component: {fileID: 1813128228}
+  - component: {fileID: 1813128227}
+  m_Layer: 0
+  m_Name: platformpath_27
+  m_TagString: Path
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1813128227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813128226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isTwoSided: 1
+  _direction: 2
+  _distanceTravelledNormal: 0
+  _distanceTravelledReverse: 3.5
+  _distanceTravelled: 0
+--- !u!65 &1813128228
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813128226}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.5224595, y: 1.3, z: 3}
+  m_Center: {x: 1.3393555, y: 0, z: 1.4210855e-14}
+--- !u!114 &1813128229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813128226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5ac92bc18f545cc84cd886ece82b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editorData:
+    _bezierPath:
+      points:
+      - {x: -0.2120056, y: 0, z: 0.00015643235}
+      - {x: 3.1699827, y: -0.0024614327, z: -0.00022649759}
+      - {x: -0.11726378, y: -0.008164404, z: 0.017087486}
+      - {x: 3.206497, y: 0.0000038146964, z: -0.00018167491}
+      isClosed: 0
+      space: 0
+      controlMode: 0
+      autoControlLength: 0.3
+      boundsUpToDate: 0
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+      perAnchorNormalsAngle:
+      - 0
+      - 0
+      globalNormalsAngle: 0
+      flipNormals: 0
+    vertexPathUpToDate: 1
+    vertexPathMaxAngleError: 0.3
+    vertexPathMinVertexSpacing: 0.01
+    showTransformTool: 1
+    showPathBounds: 0
+    showPerSegmentBounds: 0
+    displayAnchorPoints: 1
+    displayControlPoints: 1
+    bezierHandleScale: 5
+    globalDisplaySettingsFoldout: 0
+    keepConstantHandleSize: 0
+    showNormalsInVertexMode: 0
+    showBezierPathInVertexMode: 0
+    showDisplayOptions: 1
+    showPathOptions: 1
+    showVertexPathDisplayOptions: 0
+    showVertexPathOptions: 1
+    showNormals: 0
+    showNormalsHelpInfo: 0
+    tabIndex: 0
+  initialized: 1
+--- !u!4 &1813128230
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813128226}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalPosition: {x: 6.87, y: 1.1726322, z: 174.36}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!1 &1821110477
 GameObject:
   m_ObjectHideFlags: 0
@@ -25315,9 +25946,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -25627,9 +26257,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 3
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 9.5
   _distanceTravelled: 0
@@ -27710,9 +28339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -28094,9 +28722,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -28281,9 +28908,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -28371,9 +28997,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 1
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 9.5
   _distanceTravelled: 0
@@ -28503,9 +29128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -28627,9 +29251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 1
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 15
   _distanceTravelled: 0
@@ -28839,9 +29462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -29057,9 +29679,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -29147,9 +29768,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 0
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 9.5
   _distanceTravelled: 0
@@ -29445,9 +30065,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -31464,6 +32083,123 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66a2149a34d004f38a704c3f946c83b2, type: 3}
+--- !u!1 &2057792092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2057792096}
+  - component: {fileID: 2057792095}
+  - component: {fileID: 2057792094}
+  - component: {fileID: 2057792093}
+  m_Layer: 0
+  m_Name: platformpath_28
+  m_TagString: Path
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2057792093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057792092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isTwoSided: 1
+  _direction: 0
+  _distanceTravelledNormal: 0
+  _distanceTravelledReverse: 3.5
+  _distanceTravelled: 0
+--- !u!65 &2057792094
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057792092}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.5224595, y: 1.3, z: 3}
+  m_Center: {x: 1.3393555, y: 0, z: 1.4210855e-14}
+--- !u!114 &2057792095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057792092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5ac92bc18f545cc84cd886ece82b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editorData:
+    _bezierPath:
+      points:
+      - {x: -0.21230984, y: 0, z: -0.0006866455}
+      - {x: 1.3018117, y: 0, z: -0.0011749268}
+      - {x: 1.9768066, y: 0, z: -0.007797241}
+      - {x: 3.015892, y: 0, z: -0.025131226}
+      isClosed: 0
+      space: 0
+      controlMode: 0
+      autoControlLength: 0.3
+      boundsUpToDate: 0
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+      perAnchorNormalsAngle:
+      - 0
+      - 0
+      globalNormalsAngle: 0
+      flipNormals: 0
+    vertexPathUpToDate: 0
+    vertexPathMaxAngleError: 0.3
+    vertexPathMinVertexSpacing: 0.01
+    showTransformTool: 1
+    showPathBounds: 0
+    showPerSegmentBounds: 0
+    displayAnchorPoints: 1
+    displayControlPoints: 1
+    bezierHandleScale: 5
+    globalDisplaySettingsFoldout: 0
+    keepConstantHandleSize: 0
+    showNormalsInVertexMode: 0
+    showBezierPathInVertexMode: 0
+    showDisplayOptions: 1
+    showPathOptions: 1
+    showVertexPathDisplayOptions: 0
+    showVertexPathOptions: 1
+    showNormals: 0
+    showNormalsHelpInfo: 0
+    tabIndex: 0
+  initialized: 1
+--- !u!4 &2057792096
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057792092}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 6.69, y: 1.1726322, z: 177.57}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &2066334084
 GameObject:
   m_ObjectHideFlags: 0
@@ -31509,9 +32245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -31730,9 +32465,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -31834,9 +32568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -31938,9 +32671,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -32042,9 +32774,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -32146,9 +32877,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -32250,9 +32980,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 4
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
   _distanceTravelled: 0
@@ -32423,9 +33152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isCollected: 0
+  _isTwoSided: 0
   _direction: 2
-  _movementFactor: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 9.5
   _distanceTravelled: 0

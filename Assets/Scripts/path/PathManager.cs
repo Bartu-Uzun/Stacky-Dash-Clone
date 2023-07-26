@@ -56,18 +56,43 @@ public class PathManager : MonoBehaviour
         return _paths;
     }
 
-    public GameObject GetPath(Path.Direction direction) { // give input direction, return path thats in that direction
+    //isFollowUp: if GetPath is called when game is looking for a FollowUp path, then bidirection should not be checked as it will cause a loop
+    public GameObject GetPath(Path.Direction direction, Path.Direction reverseDirection, bool isFollowUp) { // give input direction, return path thats in that direction
 
+        /* if _paths has 2 paths with the same Direction, player is on a biDirectional path (meaning player can go both left & right, or up & down)
+        ** if this same Direction is the reverseDirection, then player is trying to move on this biDirectional path
+        */
+        int reverseDirectionCount = 0;
 
         for (int i = 0; i < _paths.Count; i++) {
 
-            //Debug.Log("name: " + _paths[i].name + " direction: " + _paths[i].GetComponent<Path>().GetDirection());
+            Path currentPath = _paths[i].GetComponent<Path>();
 
-            if (_paths[i].GetComponent<Path>().GetDirection() == direction) {
-
-                //Debug.Log("found ya'");
+            if (currentPath.GetDirection() == direction) {
 
                 return _paths[i];
+            }
+            else if (currentPath.GetDirection() == reverseDirection) {
+
+                reverseDirectionCount++;
+            }
+        }
+        
+        if (!isFollowUp && reverseDirectionCount == 2) {
+
+            //check if path is two directional and needs a reverse operation
+            for (int i = 0; i < _paths.Count; i++) { 
+
+                Path currentPath = _paths[i].GetComponent<Path>();
+
+                if (currentPath.GetIsTwoSided() && currentPath.GetDirection() == reverseDirection) { 
+
+                    currentPath.ReverseDistanceTravelled();
+                    currentPath.ReverseMovementFactor();
+
+                    return _paths[i];
+
+                }
             }
         }
 

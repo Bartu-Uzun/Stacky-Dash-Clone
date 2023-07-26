@@ -5,13 +5,15 @@ using UnityEngine;
 public class Path : MonoBehaviour
 {
 
-    [SerializeField] private bool _isCollected = false;
+    private bool _isCollected = false;
+
+    [SerializeField] private bool _isTwoSided = false;
 
     [SerializeField] private Direction _direction; //holds the direction of the path
-    [SerializeField] private int _movementFactor = 1;
-    [SerializeField] private float _distanceTravelledNormal = 0;
-    [SerializeField] private float _distanceTravelledReverse = 10;
-    [SerializeField] private float _distanceTravelled = 0;
+    private int _movementFactor = 1;
+    [SerializeField] private float _distanceTravelledNormal = 0; // just for debugging
+    [SerializeField] private float _distanceTravelledReverse = 10; // fill from editor
+    [SerializeField] private float _distanceTravelled = 0; // just for debugging
 
     public enum Direction {Left, Right, Up, Down, Bridge};
     
@@ -30,6 +32,10 @@ public class Path : MonoBehaviour
     public float GetDistanceTravelled() {
 
         return _distanceTravelled;
+    }
+    public bool GetIsTwoSided() {
+
+        return _isTwoSided;
     }
 
     public void SetIsCollected(bool isCollected) {
