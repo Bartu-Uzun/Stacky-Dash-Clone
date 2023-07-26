@@ -21,6 +21,7 @@ public class PathPlayerController : MonoBehaviour
     [SerializeField] private bool _isSliding = false;
 
     private bool _hasStoppedOnBridge = false;
+    private bool _isOnTheEdge = false;
     [SerializeField] private float _currentDistanceTravelled;
 
     private float _currentPathMovementFactor;
@@ -30,6 +31,8 @@ public class PathPlayerController : MonoBehaviour
     private Vector3 _previousPos;
 
     private MovementDirection _lastMovementDirection;
+
+    private GameObject _edgePath;
 
 
     public enum MovementDirection {Left, Right, Up, Down}
@@ -60,6 +63,10 @@ public class PathPlayerController : MonoBehaviour
         if (_isMoving && _currentPathCreator != null) {
             Move();
 
+        }
+
+        if (_isOnTheEdge && !_isSliding) {
+            EndOfBridgeMovement();
         }
         
 
@@ -98,9 +105,17 @@ public class PathPlayerController : MonoBehaviour
         }
     }
 
-    public void EndOfBridgeMovement(GameObject edgePath) {
+    public void EndOfBridge(GameObject edgePath) {
 
-        _currentPath = edgePath;
+        _edgePath = edgePath;
+        _isOnTheEdge = true;
+    }
+
+    public void EndOfBridgeMovement() {
+
+        _isOnTheEdge = false;
+
+        _currentPath = _edgePath;
 
         Path pathComponent = _currentPath.GetComponent<Path>();
 

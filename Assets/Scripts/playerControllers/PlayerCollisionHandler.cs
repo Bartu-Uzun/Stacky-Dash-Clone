@@ -48,7 +48,8 @@ public class PlayerCollisionHandler : MonoBehaviour
 
                 if (_currentParent != null) {
 
-                    //Debug.Log("i have a parent");
+                    //Debug.Log("entering to the bridge");
+
                     StartCoroutine(EnterBridge(other));
 
                 }
@@ -162,7 +163,7 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) {
 
-        Debug.Log("collision with: " + other.gameObject.name);
+        //Debug.Log("collision with: " + other.gameObject.name);
         
         if (other.gameObject.CompareTag(TagManager.CHEST_TAG)) {
 
@@ -183,24 +184,11 @@ public class PlayerCollisionHandler : MonoBehaviour
         
         yield return new WaitForSeconds(0.05f);
 
-        //other.GetComponent<Bridge>().OnEnterBridge();
-
         if (_currentParent != null) {
 
             _currentParent.CheckPlayerOnBridge();
         }
 
     }
-
-
-    /* OLD VERSION
-    private IEnumerator EnterBridge(Collider other, bool enteredEndPlatform) {
-
-        yield return new WaitForSeconds(0.05f);
-
-        other.GetComponent<BridgeHandler>().OnEnterBridge(enteredEndPlatform);
-
-    }
-    */
     
 }

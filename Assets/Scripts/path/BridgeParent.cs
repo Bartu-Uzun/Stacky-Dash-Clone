@@ -39,19 +39,20 @@ public class BridgeParent : MonoBehaviour
             _currentBridge.SlidePlayerOnBridge();
 
             _currentBridgeIndex += _incrementAmount;
-            Debug.Log("index incremented");
 
             if (_currentBridgeIndex < 0) { //player left the bridge from the first edge
 
                 EndOfBridge(_edgePath1);
                 _currentBridgeIndex = 0;
-                Debug.Log("index reset");
             }
             else if (_currentBridgeIndex >= _bridges.Length) { // player left the bridge from the second edge
 
                 EndOfBridge(_edgePath2);
 
+
                 _currentBridgeIndex = _bridges.Length - 1;
+
+                //Debug.Log(_currentBridgeIndex);
             }
 
 
@@ -67,10 +68,23 @@ public class BridgeParent : MonoBehaviour
 
         _isPlayerOnTheBridge = false;
 
+        PathPlayerController.Instance.EndOfBridge(edgePath);
+
+        ReverseIncrementAmount();
+    }
+
+    /*
+    private IEnumerator EndOfBridge(GameObject edgePath) {
+
+        yield return new WaitForSeconds(0.1f);
+
+        _isPlayerOnTheBridge = false;
+
         PathPlayerController.Instance.EndOfBridgeMovement(edgePath);
 
         ReverseIncrementAmount();
     }
+    */
 
     public void LetPlayerSlide() {
 
