@@ -56,13 +56,8 @@ public class PathManager : MonoBehaviour
         return _paths;
     }
 
-    //isFollowUp: if GetPath is called when game is looking for a FollowUp path, then bidirection should not be checked as it will cause a loop
-    public GameObject GetPath(Path.Direction direction, Path.Direction reverseDirection, bool isFollowUp) { // give input direction, return path thats in that direction
-
-        /* if _paths has 2 paths with the same Direction, player is on a biDirectional path (meaning player can go both left & right, or up & down)
-        ** if this same Direction is the reverseDirection, then player is trying to move on this biDirectional path
-        */
-        int reverseDirectionCount = 0;
+    // give input direction, return path thats in that direction
+    public GameObject GetPath(Path.Direction direction, Path.Direction reverseDirection, PathPlayerController.MovementDirection lastDirection) { 
 
         for (int i = 0; i < _paths.Count; i++) {
 
@@ -72,30 +67,80 @@ public class PathManager : MonoBehaviour
 
                 return _paths[i];
             }
-            else if (currentPath.GetDirection() == reverseDirection) {
 
-                reverseDirectionCount++;
-            }
         }
         
-        if (!isFollowUp && reverseDirectionCount == 2) {
+        //check if path is two directional and needs a reverse operation
+        for (int i = 0; i < _paths.Count; i++) { 
 
-            //check if path is two directional and needs a reverse operation
-            for (int i = 0; i < _paths.Count; i++) { 
+            Path currentPath = _paths[i].GetComponent<Path>();
 
-                Path currentPath = _paths[i].GetComponent<Path>();
+            if (currentPath.GetIsTwoSided() && currentPath.GetDirection() == reverseDirection && !ArePathsEqual(reverseDirection, lastDirection)) { 
 
-                if (currentPath.GetIsTwoSided() && currentPath.GetDirection() == reverseDirection) { 
+                Debug.Log("reverse path direction: " + reverseDirection + " last movement dir: " + lastDirection + " isEqual: " + ArePathsEqual(reverseDirection, lastDirection));
+                currentPath.ReverseDistanceTravelled();
+                currentPath.ReverseMovementFactor();
 
-                    currentPath.ReverseDistanceTravelled();
-                    currentPath.ReverseMovementFactor();
+                return _paths[i];
 
-                    return _paths[i];
-
-                }
             }
         }
 
         return null;
+    }
+
+    private bool ArePathsEqual(Path.Direction pathDir, PathPlayerController.MovementDirection movementDir) {
+
+        bool flag;
+
+        if (pathDir == Path.Direction.Left && movementDir == PathPlayerController.MovementDirection.Left) {
+            flag = true;
+        }
+        else if (pathDir == Path.Direction.Right && movementDir == PathPlayerController.MovementDirection.Right) {
+            flag = true;
+        }
+        else if (pathDir == Path.Direction.Down && movementDir == PathPlayerController.MovementDirection.Down) {
+            flag = true;
+        }
+        else if (pathDir == Path.Direction.Up && movementDir == PathPlayerController.MovementDirection.Up) {
+            flag = true;
+        }
+        else {
+            flag = false;
+        }
+
+        return flag;
+    }
+
+    public GameObject GetPath(Path.Direction direction, Path.Direction reverseDirection, GameObject pathToCheck) {
+
+        for (int i = 0; i < _paths.Count; i++) {
+
+            Path currentPath = _paths[i].GetComponent<Path>();
+
+            if (currentPath.GetDirection() == direction) {
+
+                return _paths[i];
+            }
+        }
+
+        for (int i = 0; i < _paths.Count; i++) { 
+
+            Path currentPathComponent = _paths[i].GetComponent<Path>();
+
+            if (currentPathComponent.GetIsTwoSided() && currentPathComponent.GetDirection() == reverseDirection && !_paths[i].Equals(pathToCheck)) { 
+
+                //Debug.Log("current path: " + _paths[i] + "pathToCheck: " + pathToCheck + "isEqual: " + _paths[i].Equals(pathToCheck));
+
+                currentPathComponent.ReverseDistanceTravelled();
+                currentPathComponent.ReverseMovementFactor();
+
+                return _paths[i];
+
+            }
+        }
+
+        return null;
+
     }
 }

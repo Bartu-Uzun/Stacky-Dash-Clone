@@ -138,6 +138,8 @@ public class PathPlayerController : MonoBehaviour
 
     public void Stop() {
 
+        bool doesCarryOn = false;
+
         _shouldGoDown = false;
         _shouldGoLeft = false;
         _shouldGoRight = false;
@@ -145,26 +147,29 @@ public class PathPlayerController : MonoBehaviour
 
         _isMoving = false;
         
-
-        
-        
-        _currentPath = null;
-        _currentPathCreator = null;
-
         if (!_isSliding) {
 
             /* check all the paths player has access to
             ** if one of the paths has a matching direction with the _lastMovementDirection,
             ** player should start moving at that path
             */
-            CheckIfPathCarriesOn();
+            doesCarryOn = CheckIfPathCarriesOn(_currentPath);
+        }
+
+        
+        if (!doesCarryOn) {
+
+            _currentPath = null;
+            _currentPathCreator = null;
         }
 
         _isSliding = false;
         
     }
 
-    private void CheckIfPathCarriesOn() {
+    private bool CheckIfPathCarriesOn(GameObject pathToCheck) {
+
+        
 
         Path.Direction checkDirection;
         Path.Direction reverseDirection;
@@ -190,7 +195,9 @@ public class PathPlayerController : MonoBehaviour
             reverseDirection = Path.Direction.Down;
         }
 
-        SetPlatformPathComponent(checkDirection, reverseDirection, true);
+        bool flag = SetPlatformPathComponent(checkDirection, reverseDirection, pathToCheck);
+
+        return flag;
     }
 
     // called whenever player should stop on a bridge
@@ -220,21 +227,21 @@ public class PathPlayerController : MonoBehaviour
             if (!_hasStoppedOnBridge) { //player did not stop on the bridge
 
                 //read inputs
-                if (!_shouldGoLeft)
+                if (!_shouldGoLeft && _lastMovementDirection != MovementDirection.Left)   
                 {
                     _shouldGoLeft = Input.GetKeyDown(KeyCode.LeftArrow) || MobileInput.Instance.swipeLeft;
                 }
-                if (!_shouldGoRight)
+                if (!_shouldGoRight && _lastMovementDirection != MovementDirection.Right)
                 {
 
                     _shouldGoRight = Input.GetKeyDown(KeyCode.RightArrow) || MobileInput.Instance.swipeRight;
                 }
-                if (!_shouldGoDown)
+                if (!_shouldGoDown && _lastMovementDirection != MovementDirection.Down)
                 {
 
                     _shouldGoDown = Input.GetKeyDown(KeyCode.DownArrow) || MobileInput.Instance.swipeDown;
                 }
-                if (!_shouldGoUp)
+                if (!_shouldGoUp && _lastMovementDirection != MovementDirection.Up)
                 {
 
                     _shouldGoUp = Input.GetKeyDown(KeyCode.UpArrow) || MobileInput.Instance.swipeUp;
@@ -314,35 +321,34 @@ public class PathPlayerController : MonoBehaviour
                 // find movement direction, set path accordingly, update path's allowed direction
                 if (_shouldGoLeft) {
 
-                    _lastMovementDirection = MovementDirection.Left; // save lastPressedKey value
+                    SetPlatformPathComponent(Path.Direction.Left, Path.Direction.Right, _lastMovementDirection);
 
-                    SetPlatformPathComponent(Path.Direction.Left, Path.Direction.Right, false);
+                    _lastMovementDirection = MovementDirection.Left; // save lastPressedKey value
 
                     _shouldGoLeft = false;
                 }
                 if (_shouldGoRight) {
 
-                    _lastMovementDirection = MovementDirection.Right; // save lastPressedKey value
+                    SetPlatformPathComponent(Path.Direction.Right, Path.Direction.Left, _lastMovementDirection);
 
-                    SetPlatformPathComponent(Path.Direction.Right, Path.Direction.Left, false);
-                    
+                    _lastMovementDirection = MovementDirection.Right; // save lastPressedKey value
 
                     _shouldGoRight = false;
                 }
                 if (_shouldGoDown) {
 
-                    _lastMovementDirection = MovementDirection.Down; // save lastPressedKey value
+                    SetPlatformPathComponent(Path.Direction.Down, Path.Direction.Up, _lastMovementDirection);
 
-                    SetPlatformPathComponent(Path.Direction.Down, Path.Direction.Up, false);
+                    _lastMovementDirection = MovementDirection.Down; // save lastPressedKey value
 
                     _shouldGoDown = false;
                     
                 }
                 if (_shouldGoUp) {
 
-                    _lastMovementDirection = MovementDirection.Up; // save lastPressedKey value
+                    SetPlatformPathComponent(Path.Direction.Up, Path.Direction.Down, _lastMovementDirection);
 
-                    SetPlatformPathComponent(Path.Direction.Up, Path.Direction.Down, false);
+                    _lastMovementDirection = MovementDirection.Up; // save lastPressedKey value
 
                     _shouldGoUp = false;
                     
@@ -362,10 +368,10 @@ public class PathPlayerController : MonoBehaviour
         _hasStoppedOnBridge = false;
     }
 
-    private void SetPlatformPathComponent(Path.Direction direction, Path.Direction reverseDirection, bool isFollowUp)
+    private void SetPlatformPathComponent(Path.Direction direction, Path.Direction reverseDirection, MovementDirection lastMovementDirection)
     {
 
-        _currentPath = PathManager.Instance.GetPath(direction, reverseDirection, isFollowUp);
+        _currentPath = PathManager.Instance.GetPath(direction, reverseDirection, lastMovementDirection);
 
         if (_currentPath != null) {
 
@@ -377,7 +383,27 @@ public class PathPlayerController : MonoBehaviour
 
         }
 
-        
+    }
+
+    private bool SetPlatformPathComponent(Path.Direction direction, Path.Direction reverseDirection, GameObject pathToCheck) {
+
+        bool flag = false;
+
+        _currentPath = PathManager.Instance.GetPath(direction, reverseDirection, pathToCheck);
+
+        if (_currentPath != null) {
+
+            Path pathComponent = SetPathComponent();
+            pathComponent.SetDirection(reverseDirection);
+            _isMoving = true;
+
+            _currentPathCreator = _currentPath.GetComponent<PathCreator>();
+
+            flag = true;
+
+        }
+
+        return flag;
     }
 
     private Path SetPathComponent()
