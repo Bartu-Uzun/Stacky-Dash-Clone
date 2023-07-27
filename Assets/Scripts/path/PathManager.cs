@@ -112,7 +112,7 @@ public class PathManager : MonoBehaviour
                 else {
                     fitPath2 = _paths[i];
 
-                    Debug.Log("fitPath1: " + fitPath1 + " fitPath2: " + fitPath2);
+                    //Debug.Log("fitPath1: " + fitPath1 + " fitPath2: " + fitPath2);
                     break;
                 }
 
@@ -150,7 +150,7 @@ public class PathManager : MonoBehaviour
 
     private GameObject CheckPriority(GameObject path1, GameObject path2, Path.Direction direction) {
 
-        Debug.Log("direction: " + direction);
+        //Debug.Log("direction: " + direction);
 
         Path pathComponent1 = path1.GetComponent<Path>();
         Path pathComponent2 = path2.GetComponent<Path>();
@@ -195,6 +195,8 @@ public class PathManager : MonoBehaviour
 
             if (currentPath.GetDirection() == direction) {
 
+                Debug.Log("i follow u");
+
                 return _paths[i];
             }
         }
@@ -206,6 +208,9 @@ public class PathManager : MonoBehaviour
             if (currentPathComponent.GetIsTwoSided() && currentPathComponent.GetDirection() == reverseDirection && !_paths[i].Equals(pathToCheck)) { 
 
                 //Debug.Log("current path: " + _paths[i] + "pathToCheck: " + pathToCheck + "isEqual: " + _paths[i].Equals(pathToCheck));
+
+                Debug.Log("follow reverse");
+                Debug.Log("current path: " + _paths[i] + "pathToCheck: " + pathToCheck + " reverseDirection: " + reverseDirection);
 
                 currentPathComponent.ReverseDistanceTravelled();
                 currentPathComponent.ReverseMovementFactor();
