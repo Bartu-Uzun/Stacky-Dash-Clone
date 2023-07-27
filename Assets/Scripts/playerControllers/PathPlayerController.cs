@@ -20,6 +20,7 @@ public class PathPlayerController : MonoBehaviour
     [SerializeField] private bool _isMoving = false;
     [SerializeField] private bool _isSliding = false;
 
+    private bool _levelFinished = false;
     private bool _hasStoppedOnBridge = false;
     private bool _isOnTheEdge = false;
     [SerializeField] private float _currentDistanceTravelled;
@@ -217,6 +218,11 @@ public class PathPlayerController : MonoBehaviour
         _currentPathCreator = _currentPath.GetComponent<PathCreator>();
 
         _hasStoppedOnBridge = true;
+
+        if (_levelFinished) {
+
+            GameManager.Instance.LevelFinished(false); //level finished, not great win (player stopped on the end bridge)
+        }
     }
 
     private void ReadInput()
@@ -415,6 +421,11 @@ public class PathPlayerController : MonoBehaviour
         pathComponent.ReverseDistanceTravelled();
 
         return pathComponent;
+    }
+
+    public void AlertLevelFinished() {
+
+        _levelFinished = true;
     }
 
     public bool GetIsSliding() {

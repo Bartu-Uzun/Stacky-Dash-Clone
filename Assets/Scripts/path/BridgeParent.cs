@@ -73,19 +73,6 @@ public class BridgeParent : MonoBehaviour
         ReverseIncrementAmount();
     }
 
-    /*
-    private IEnumerator EndOfBridge(GameObject edgePath) {
-
-        yield return new WaitForSeconds(0.1f);
-
-        _isPlayerOnTheBridge = false;
-
-        PathPlayerController.Instance.EndOfBridgeMovement(edgePath);
-
-        ReverseIncrementAmount();
-    }
-    */
-
     public void LetPlayerSlide() {
 
         PathPlayerController.Instance.SlideOnBridge(_currentBridge.GetPath());

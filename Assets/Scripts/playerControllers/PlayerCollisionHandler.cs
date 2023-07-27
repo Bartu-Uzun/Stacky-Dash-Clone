@@ -44,11 +44,7 @@ public class PlayerCollisionHandler : MonoBehaviour
 
             else if (other.CompareTag(TagManager.BRIDGE_TAG)) {
 
-                //Debug.Log("i enter: " + other.gameObject.transform.parent.name);
-
                 if (_currentParent != null) {
-
-                    //Debug.Log("entering to the bridge");
 
                     StartCoroutine(EnterBridge(other));
 
@@ -63,13 +59,18 @@ public class PlayerCollisionHandler : MonoBehaviour
                 PathManager.Instance.AddPath(other.gameObject); // add path if player has access to it
 
             }
-            /*
+            
             else if (other.CompareTag(TagManager.END_BRIDGE_TAG)) {
 
-                StartCoroutine(EnterBridge(other, true)); //player is on end_platform
+                if (_currentParent != null) {
 
+                    PathPlayerController.Instance.AlertLevelFinished();
+
+                    StartCoroutine(EnterBridge(other));
+
+                }
             }
-            */
+            
             else if (other.CompareTag(TagManager.X1_TAG)) {
 
                 GameManager.Instance.SetTimes(1);
@@ -131,7 +132,6 @@ public class PlayerCollisionHandler : MonoBehaviour
 
                 if (_currentParent != null) {
 
-                    //_currentParent.CheckPlayerOnBridge();
                     StartCoroutine(EnterBridge(other));
 
                 }
@@ -148,26 +148,23 @@ public class PlayerCollisionHandler : MonoBehaviour
 
             //CamFollowPlayer.Instance.SetIsOnBridge(false); // alert camera
 
-            //Debug.Log("i exit: " + other.gameObject.transform.parent.name);
-
             
         } 
         if (other.CompareTag(TagManager.PATH_TAG)) {
-
-            //Debug.Log("exit path");
 
             PathManager.Instance.RemovePath(other.gameObject); //PATHNEW remove path if player has no access to it
         }
         
     }
 
+    //PROBABLY WILL NOT NEED IT
     private void OnCollisionEnter(Collision other) {
 
         //Debug.Log("collision with: " + other.gameObject.name);
         
         if (other.gameObject.CompareTag(TagManager.CHEST_TAG)) {
 
-            RigidbodyPlayerController.Instance.ChestStop();
+            // PathPlayerController.Instance.Stop();
 
         }
         
