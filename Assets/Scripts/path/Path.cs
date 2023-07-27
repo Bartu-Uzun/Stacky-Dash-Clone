@@ -8,6 +8,10 @@ public class Path : MonoBehaviour
     private bool _isCollected = false;
 
     [SerializeField] private bool _isTwoSided = false;
+    [SerializeField] private bool _hasPriority = false;
+
+    [SerializeField] private List<GameObject> _priorityOverList;
+    [SerializeField] private List<Direction> _priorityOverDirectionList; // the direction in which the path has a priority
 
     [SerializeField] private Direction _direction; //holds the direction of the path
     private int _movementFactor = 1;
@@ -36,6 +40,21 @@ public class Path : MonoBehaviour
     public bool GetIsTwoSided() {
 
         return _isTwoSided;
+    }
+    public bool GetHasPriority(GameObject path, Direction direction) {
+
+        for (int i = 0; i < _priorityOverList.Count; i++) {
+
+            if (path.Equals(_priorityOverList[i])) {
+
+                if (direction == _priorityOverDirectionList[i]) {
+
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     public void SetIsCollected(bool isCollected) {

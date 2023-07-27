@@ -290,6 +290,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 2
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 9.5
@@ -339,7 +342,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 1
+    vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -421,6 +424,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -577,10 +583,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isTwoSided: 0
+  _isTwoSided: 1
+  _hasPriority: 1
+  _priorityOverList:
+  - {fileID: 560765632}
+  - {fileID: 174605485}
+  _priorityOverDirectionList: 0100000000000000
   _direction: 0
   _distanceTravelledNormal: 0
-  _distanceTravelledReverse: 9.5
+  _distanceTravelledReverse: 3.5
   _distanceTravelled: 0
 --- !u!65 &31081045
 BoxCollider:
@@ -593,8 +604,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12.991709, y: 1.3, z: 3}
-  m_Center: {x: 5.0227127, y: 0, z: 0}
+  m_Size: {x: 6.0303454, y: 1.3, z: 2.48378}
+  m_Center: {x: 1.542031, y: 0, z: -0.25811005}
 --- !u!114 &31081046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,8 +623,8 @@ MonoBehaviour:
       points:
       - {x: -0.2225182, y: -0.00001335144, z: -0.0002593994}
       - {x: 2.9842443, y: -0.000022888184, z: -0.001373291}
-      - {x: 6.3267145, y: -0.0081272125, z: 0.018293858}
-      - {x: 9.60101, y: 0.000041007996, z: 0.0010223389}
+      - {x: -0.28292155, y: -0.0081272125, z: 0.018293858}
+      - {x: 2.9913743, y: 0.000041007996, z: 0.0010223389}
       isClosed: 0
       space: 0
       controlMode: 0
@@ -743,6 +754,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -832,6 +846,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 2
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 6.5
@@ -963,6 +980,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -1180,6 +1200,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -1511,6 +1534,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -1614,6 +1640,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -1703,6 +1732,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 0
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 6.5
@@ -2202,6 +2234,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 2
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 12.5
@@ -2678,6 +2713,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -2895,6 +2933,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -2984,6 +3025,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 1
+  _hasPriority: 1
+  _priorityOverList:
+  - {fileID: 31081043}
+  _priorityOverDirectionList: 01000000
   _direction: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 3.5
@@ -3033,7 +3078,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -3115,6 +3160,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -3255,6 +3303,126 @@ Transform:
   m_Father: {fileID: 533540774}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &185439786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 185439790}
+  - component: {fileID: 185439789}
+  - component: {fileID: 185439788}
+  - component: {fileID: 185439787}
+  m_Layer: 0
+  m_Name: platformpath_34
+  m_TagString: Path
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &185439787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185439786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isTwoSided: 1
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
+  _direction: 2
+  _distanceTravelledNormal: 0
+  _distanceTravelledReverse: 12.5
+  _distanceTravelled: 0
+--- !u!65 &185439788
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185439786}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 15.928947, y: 1.3, z: 3}
+  m_Center: {x: 6.491335, y: 0, z: -5.684342e-14}
+--- !u!114 &185439789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185439786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5ac92bc18f545cc84cd886ece82b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editorData:
+    _bezierPath:
+      points:
+      - {x: -0.2225182, y: -0.00001335144, z: -0.0002593994}
+      - {x: 2.9842443, y: -0.000022888184, z: -0.001373291}
+      - {x: 9.344096, y: -0.008218765, z: -0.0060296003}
+      - {x: 12.618392, y: -0.000050544728, z: -0.023301119}
+      isClosed: 0
+      space: 0
+      controlMode: 0
+      autoControlLength: 0.3
+      boundsUpToDate: 0
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+      perAnchorNormalsAngle:
+      - 0
+      - 0
+      globalNormalsAngle: 0
+      flipNormals: 0
+    vertexPathUpToDate: 1
+    vertexPathMaxAngleError: 0.3
+    vertexPathMinVertexSpacing: 0.01
+    showTransformTool: 1
+    showPathBounds: 0
+    showPerSegmentBounds: 0
+    displayAnchorPoints: 1
+    displayControlPoints: 1
+    bezierHandleScale: 5
+    globalDisplaySettingsFoldout: 0
+    keepConstantHandleSize: 0
+    showNormalsInVertexMode: 0
+    showBezierPathInVertexMode: 0
+    showDisplayOptions: 1
+    showPathOptions: 1
+    showVertexPathDisplayOptions: 0
+    showVertexPathOptions: 1
+    showNormals: 0
+    showNormalsHelpInfo: 0
+    tabIndex: 0
+  initialized: 1
+--- !u!4 &185439790
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185439786}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalPosition: {x: 0.53, y: 1.1726322, z: 161.57}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!1 &190835536
 GameObject:
   m_ObjectHideFlags: 0
@@ -3563,6 +3731,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -3666,6 +3837,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -3966,6 +4140,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -4203,6 +4380,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 3
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 9.5
@@ -4738,6 +4918,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 2
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 6.5
@@ -5149,6 +5332,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -5286,6 +5472,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -5389,6 +5578,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -5917,6 +6109,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -6121,6 +6316,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 2
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 12.5
@@ -6205,6 +6403,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -7403,6 +7604,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -7506,6 +7710,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -7723,6 +7930,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -7826,6 +8036,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -8164,6 +8377,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 9.5
@@ -8409,6 +8625,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -8725,6 +8944,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -8915,6 +9137,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -8972,6 +9197,127 @@ MonoBehaviour:
     showNormalsHelpInfo: 0
     tabIndex: 0
   initialized: 1
+--- !u!1 &560765632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 560765636}
+  - component: {fileID: 560765635}
+  - component: {fileID: 560765634}
+  - component: {fileID: 560765633}
+  m_Layer: 0
+  m_Name: platformpath_35
+  m_TagString: Path
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &560765633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560765632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isTwoSided: 1
+  _hasPriority: 1
+  _priorityOverList:
+  - {fileID: 31081043}
+  _priorityOverDirectionList: 00000000
+  _direction: 0
+  _distanceTravelledNormal: 0
+  _distanceTravelledReverse: 6.5
+  _distanceTravelled: 0
+--- !u!65 &560765634
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560765632}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.359253, y: 1.3, z: 3}
+  m_Center: {x: 3.2064877, y: 0, z: 0}
+--- !u!114 &560765635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560765632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5ac92bc18f545cc84cd886ece82b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editorData:
+    _bezierPath:
+      points:
+      - {x: -0.2225182, y: -0.00001335144, z: -0.0002593994}
+      - {x: 2.9842443, y: -0.000022888184, z: -0.001373291}
+      - {x: 2.9522305, y: -0.008218761, z: -0.00603533}
+      - {x: 6.2265167, y: -0.00005054474, z: -0.02330017}
+      isClosed: 0
+      space: 0
+      controlMode: 0
+      autoControlLength: 0.3
+      boundsUpToDate: 0
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+      perAnchorNormalsAngle:
+      - 0
+      - 0
+      globalNormalsAngle: 0
+      flipNormals: 0
+    vertexPathUpToDate: 1
+    vertexPathMaxAngleError: 0.3
+    vertexPathMinVertexSpacing: 0.01
+    showTransformTool: 1
+    showPathBounds: 0
+    showPerSegmentBounds: 0
+    displayAnchorPoints: 1
+    displayControlPoints: 1
+    bezierHandleScale: 5
+    globalDisplaySettingsFoldout: 0
+    keepConstantHandleSize: 0
+    showNormalsInVertexMode: 0
+    showBezierPathInVertexMode: 0
+    showDisplayOptions: 1
+    showPathOptions: 1
+    showVertexPathDisplayOptions: 0
+    showVertexPathOptions: 1
+    showNormals: 0
+    showNormalsHelpInfo: 0
+    tabIndex: 0
+  initialized: 1
+--- !u!4 &560765636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560765632}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0.37, y: 1.1726322, z: 174.14}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &563118878
 GameObject:
   m_ObjectHideFlags: 0
@@ -9018,6 +9364,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -9155,6 +9504,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -9669,6 +10021,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 0
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 3.5
@@ -9800,6 +10155,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -9903,6 +10261,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -10040,6 +10401,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -11591,6 +11955,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 1
+  _priorityOverList:
+  - {fileID: 1813128226}
+  _priorityOverDirectionList: 03000000
   _direction: 2
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 9.5
@@ -11722,6 +12090,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -11825,6 +12196,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -12170,6 +12544,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -12673,6 +13050,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -12860,6 +13240,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 2
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 17.5
@@ -14034,6 +14417,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 0
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 12.5
@@ -14282,6 +14668,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -14385,6 +14774,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -14488,6 +14880,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -14936,6 +15331,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -15236,6 +15634,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -15771,6 +16172,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -15860,6 +16264,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 2
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 12.5
@@ -16488,6 +16895,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -16545,6 +16955,126 @@ MonoBehaviour:
     showNormalsHelpInfo: 0
     tabIndex: 0
   initialized: 1
+--- !u!1 &1047693997
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1047694001}
+  - component: {fileID: 1047694000}
+  - component: {fileID: 1047693999}
+  - component: {fileID: 1047693998}
+  m_Layer: 0
+  m_Name: platformpath_33
+  m_TagString: Path
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1047693998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047693997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isTwoSided: 1
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
+  _direction: 1
+  _distanceTravelledNormal: 0
+  _distanceTravelledReverse: 6.5
+  _distanceTravelled: 0
+--- !u!65 &1047693999
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047693997}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.564621, y: 1.3, z: 3}
+  m_Center: {x: 3.3091698, y: 0, z: 0}
+--- !u!114 &1047694000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047693997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5ac92bc18f545cc84cd886ece82b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editorData:
+    _bezierPath:
+      points:
+      - {x: -0.2225182, y: -0.00001335144, z: -0.0002593994}
+      - {x: 2.9842443, y: -0.000022888184, z: -0.001373291}
+      - {x: 3.1049218, y: -0.008218765, z: -0.006028652}
+      - {x: 6.3792176, y: -0.00005054474, z: -0.02330017}
+      isClosed: 0
+      space: 0
+      controlMode: 0
+      autoControlLength: 0.3
+      boundsUpToDate: 0
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+      perAnchorNormalsAngle:
+      - 0
+      - 0
+      globalNormalsAngle: 0
+      flipNormals: 0
+    vertexPathUpToDate: 1
+    vertexPathMaxAngleError: 0.3
+    vertexPathMinVertexSpacing: 0.01
+    showTransformTool: 1
+    showPathBounds: 0
+    showPerSegmentBounds: 0
+    displayAnchorPoints: 1
+    displayControlPoints: 1
+    bezierHandleScale: 5
+    globalDisplaySettingsFoldout: 0
+    keepConstantHandleSize: 0
+    showNormalsInVertexMode: 0
+    showBezierPathInVertexMode: 0
+    showDisplayOptions: 1
+    showPathOptions: 1
+    showVertexPathDisplayOptions: 0
+    showVertexPathOptions: 1
+    showNormals: 0
+    showNormalsHelpInfo: 0
+    tabIndex: 0
+  initialized: 1
+--- !u!4 &1047694001
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047693997}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.74, y: 1.1726322, z: 161.38}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1048963571
 GameObject:
   m_ObjectHideFlags: 0
@@ -16591,6 +17121,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -17298,6 +17831,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 0
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 6.5
@@ -17429,6 +17965,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -17615,6 +18154,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -17801,6 +18343,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -18201,6 +18746,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 2
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 6.5
@@ -18432,6 +18980,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 1
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 3
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 3.5
@@ -18549,6 +19100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 9.5
@@ -19197,6 +19751,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 0
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 9.5
@@ -20865,6 +21422,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 3
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 6.5
@@ -20996,6 +21556,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -21811,6 +22374,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -22399,6 +22965,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 2
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 17.5
@@ -22779,6 +23348,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -22882,6 +23454,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -23084,6 +23659,126 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1597238211}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1601119328
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1601119332}
+  - component: {fileID: 1601119331}
+  - component: {fileID: 1601119330}
+  - component: {fileID: 1601119329}
+  m_Layer: 0
+  m_Name: platformpath_32
+  m_TagString: Path
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1601119329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601119328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d79b69ae7d467b858a10d55b49179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isTwoSided: 1
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
+  _direction: 3
+  _distanceTravelledNormal: 0
+  _distanceTravelledReverse: 12.5
+  _distanceTravelled: 0
+--- !u!65 &1601119330
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601119328}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 15.449045, y: 1.3, z: 3}
+  m_Center: {x: 6.251382, y: 0, z: 5.684342e-14}
+--- !u!114 &1601119331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601119328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5ac92bc18f545cc84cd886ece82b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  editorData:
+    _bezierPath:
+      points:
+      - {x: -0.2225182, y: -0.00001335144, z: -0.0002593994}
+      - {x: 2.9842443, y: -0.000022888184, z: -0.001373291}
+      - {x: 9.268596, y: -0.008145332, z: -0.0049748365}
+      - {x: 12.5428915, y: 0.000022888178, z: -0.022246355}
+      isClosed: 0
+      space: 0
+      controlMode: 0
+      autoControlLength: 0.3
+      boundsUpToDate: 0
+      bounds:
+        m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 0, y: 0, z: 0}
+      perAnchorNormalsAngle:
+      - 0
+      - 0
+      globalNormalsAngle: 0
+      flipNormals: 0
+    vertexPathUpToDate: 1
+    vertexPathMaxAngleError: 0.3
+    vertexPathMinVertexSpacing: 0.01
+    showTransformTool: 1
+    showPathBounds: 0
+    showPerSegmentBounds: 0
+    displayAnchorPoints: 1
+    displayControlPoints: 1
+    bezierHandleScale: 5
+    globalDisplaySettingsFoldout: 0
+    keepConstantHandleSize: 0
+    showNormalsInVertexMode: 0
+    showBezierPathInVertexMode: 0
+    showDisplayOptions: 1
+    showPathOptions: 1
+    showVertexPathDisplayOptions: 0
+    showVertexPathOptions: 1
+    showNormals: 0
+    showNormalsHelpInfo: 0
+    tabIndex: 0
+  initialized: 1
+--- !u!4 &1601119332
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601119328}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -5.92, y: 1.1726322, z: 173.96}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1602856504
 GameObject:
   m_ObjectHideFlags: 0
@@ -23496,6 +24191,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -23750,6 +24448,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -24101,6 +24802,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 6.5
@@ -24494,6 +25198,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -25093,6 +25800,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 9.5
@@ -25491,6 +26201,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -25702,6 +26415,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 1
+  _hasPriority: 1
+  _priorityOverList:
+  - {fileID: 662121742}
+  _priorityOverDirectionList: 02000000
   _direction: 2
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 3.5
@@ -25779,9 +26496,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1813128226}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 6.87, y: 1.1726322, z: 174.36}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalPosition: {x: 6.869999, y: 1.1726322, z: 174.36}
+  m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000002}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -25947,6 +26664,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -26258,6 +26978,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 3
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 9.5
@@ -28340,6 +29063,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -28723,6 +29449,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -28909,6 +29638,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -28998,6 +29730,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 9.5
@@ -29129,6 +29864,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -29252,6 +29990,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 1
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 15
@@ -29463,6 +30204,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -29680,6 +30424,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -29769,6 +30516,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 0
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 9.5
@@ -30066,6 +30816,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -32115,6 +32868,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 1
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 0
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 3.5
@@ -32246,6 +33002,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -32466,6 +33225,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -32569,6 +33331,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -32672,6 +33437,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -32775,6 +33543,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -32878,6 +33649,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -32981,6 +33755,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 4
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 2
@@ -33153,6 +33930,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isTwoSided: 0
+  _hasPriority: 0
+  _priorityOverList: []
+  _priorityOverDirectionList: 
   _direction: 2
   _distanceTravelledNormal: 0
   _distanceTravelledReverse: 9.5

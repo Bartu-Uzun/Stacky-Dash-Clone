@@ -59,15 +59,37 @@ public class PathManager : MonoBehaviour
     // give input direction, return path thats in that direction
     public GameObject GetPath(Path.Direction direction, Path.Direction reverseDirection, PathPlayerController.MovementDirection lastDirection) { 
 
+        GameObject fitPath1 = null;
+        GameObject fitPath2 = null;
         for (int i = 0; i < _paths.Count; i++) {
 
             Path currentPath = _paths[i].GetComponent<Path>();
 
             if (currentPath.GetDirection() == direction) {
 
-                return _paths[i];
+                if (fitPath1 == null) {
+
+                    fitPath1 = _paths[i];
+                }
+                else {
+
+                    fitPath2 = _paths[i];
+                    break;
+                }
             }
 
+        }
+
+        if (fitPath1 != null && fitPath2 != null) {
+
+            GameObject priorityPath = CheckPriority(fitPath1, fitPath2, direction);
+
+            return priorityPath;
+        }
+
+        else if (fitPath1 != null && fitPath2 == null) {
+
+            return fitPath1;
         }
         
         //check if path is two directional and needs a reverse operation
@@ -77,16 +99,68 @@ public class PathManager : MonoBehaviour
 
             if (currentPath.GetIsTwoSided() && currentPath.GetDirection() == reverseDirection && !ArePathsEqual(reverseDirection, lastDirection)) { 
 
-                Debug.Log("reverse path direction: " + reverseDirection + " last movement dir: " + lastDirection + " isEqual: " + ArePathsEqual(reverseDirection, lastDirection));
-                currentPath.ReverseDistanceTravelled();
-                currentPath.ReverseMovementFactor();
+                //Debug.Log("reverse path direction: " + reverseDirection + " last movement dir: " + lastDirection + " isEqual: " + ArePathsEqual(reverseDirection, lastDirection));
+                
+                //currentPath.ReverseDistanceTravelled();
+                //currentPath.ReverseMovementFactor();
 
-                return _paths[i];
+                if (fitPath1 == null) {
+                    fitPath1 = _paths[i];
+
+                    
+                }
+                else {
+                    fitPath2 = _paths[i];
+
+                    Debug.Log("fitPath1: " + fitPath1 + " fitPath2: " + fitPath2);
+                    break;
+                }
 
             }
         }
 
+        if (fitPath1 != null && fitPath2 != null) {
+
+            GameObject priorityPath = CheckPriority(fitPath1, fitPath2, direction);
+
+            Debug.Log("priority path: " + priorityPath);
+
+            Path pathComponent = priorityPath.GetComponent<Path>();
+
+            pathComponent.ReverseDistanceTravelled();
+            pathComponent.ReverseMovementFactor();
+
+            return priorityPath;
+        }
+
+        else if (fitPath1 != null && fitPath2 == null) {
+
+            Path pathComponent = fitPath1.GetComponent<Path>();
+
+            pathComponent.ReverseDistanceTravelled();
+            pathComponent.ReverseMovementFactor();
+
+            return fitPath1;
+        }
+
+
+
         return null;
+    }
+
+    private GameObject CheckPriority(GameObject path1, GameObject path2, Path.Direction direction) {
+
+        Debug.Log("direction: " + direction);
+
+        Path pathComponent1 = path1.GetComponent<Path>();
+        Path pathComponent2 = path2.GetComponent<Path>();
+
+        if (pathComponent1.GetHasPriority(path2 ,direction)) {
+            return path1;
+        }
+        else {
+            return path2;
+        }
     }
 
     private bool ArePathsEqual(Path.Direction pathDir, PathPlayerController.MovementDirection movementDir) {
@@ -112,6 +186,7 @@ public class PathManager : MonoBehaviour
         return flag;
     }
 
+    // called when checking for a follow-up
     public GameObject GetPath(Path.Direction direction, Path.Direction reverseDirection, GameObject pathToCheck) {
 
         for (int i = 0; i < _paths.Count; i++) {
