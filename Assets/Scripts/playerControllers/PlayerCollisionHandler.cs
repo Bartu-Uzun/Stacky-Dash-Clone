@@ -138,6 +138,14 @@ public class PlayerCollisionHandler : MonoBehaviour
 
                 
             }
+            else if (other.gameObject.CompareTag(TagManager.END_BRIDGE_TAG)) {
+
+                if (_currentParent != null) {
+
+                    StartCoroutine(EnterBridge(other));
+
+                }
+            }
         }
     }
 
@@ -157,18 +165,6 @@ public class PlayerCollisionHandler : MonoBehaviour
         
     }
 
-    //PROBABLY WILL NOT NEED IT
-    private void OnCollisionEnter(Collision other) {
-
-        //Debug.Log("collision with: " + other.gameObject.name);
-        
-        if (other.gameObject.CompareTag(TagManager.CHEST_TAG)) {
-
-            // PathPlayerController.Instance.Stop();
-
-        }
-        
-    }
 
     private IEnumerator EdgeCoroutine() {
 

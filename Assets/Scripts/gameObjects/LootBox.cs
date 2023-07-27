@@ -208,6 +208,15 @@ public class LootBox : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other) {
+
+        if (other.CompareTag(playerTag)) {
+
+            Open();
+        }
+        
+    }
+
     /// <summary>
     /// When player goes away from box.
     /// </summary>

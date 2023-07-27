@@ -209,8 +209,8 @@ public class PathManager : MonoBehaviour
 
                 //Debug.Log("current path: " + _paths[i] + "pathToCheck: " + pathToCheck + "isEqual: " + _paths[i].Equals(pathToCheck));
 
-                //Debug.Log("follow reverse");
-                //Debug.Log("current path: " + _paths[i] + "pathToCheck: " + pathToCheck + " reverseDirection: " + reverseDirection);
+                Debug.Log("follow reverse");
+                Debug.Log("current path: " + _paths[i] + "pathToCheck: " + pathToCheck + " reverseDirection: " + reverseDirection);
 
                 currentPathComponent.ReverseDistanceTravelled();
                 currentPathComponent.ReverseMovementFactor();
