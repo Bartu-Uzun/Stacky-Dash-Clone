@@ -48,8 +48,6 @@ public class PathPlayerController : MonoBehaviour
         }
 
         _previousPos = transform.position;
-
-        //DontDestroyOnLoad(gameObject); //NEED TO CHECK
     }
 
     /* Lesson: FixedUpdate is unreliable when reading functions like Input.GetKeyDown. To read them, we still
@@ -73,12 +71,12 @@ public class PathPlayerController : MonoBehaviour
 
     }
 
+    // move on the currentPath
     private void Move() {
 
         _previousPos = transform.position;
         _currentDistanceTravelled += _speed * _currentPathMovementFactor * Time.deltaTime;
         transform.position = _currentPathCreator.path.GetPointAtDistance(_currentDistanceTravelled, EndOfPathInstruction.Stop);
-        //transform.rotation = _currentPathCreator.path.GetRotationAtDistance(_currentDistanceTravelled, EndOfPathInstruction.Stop);
 
         if (Vector3.Distance(_previousPos, transform.position) <= _threshold) { // player has stopped
             Stop();
@@ -86,6 +84,7 @@ public class PathPlayerController : MonoBehaviour
 
     }
 
+    // set the current path as the bridge's path
     public void SlideOnBridge(GameObject path) {
 
         if (_currentPath == null) {
@@ -107,6 +106,7 @@ public class PathPlayerController : MonoBehaviour
         _isOnTheEdge = true;
     }
 
+    // set the current path as the path that is at the edge of the recently exited bridge
     public void EndOfBridgeMovement() {
 
         _isOnTheEdge = false;
@@ -157,7 +157,7 @@ public class PathPlayerController : MonoBehaviour
             doesCarryOn = CheckIfPathCarriesOn(_currentPath);
         }
 
-        
+        // if there is no follow-up path, reset currentPath
         if (!doesCarryOn) {
 
             _currentPath = null;
@@ -168,6 +168,7 @@ public class PathPlayerController : MonoBehaviour
         
     }
 
+    // checks if there is a path that follows up the recently moved on path
     private bool CheckIfPathCarriesOn(GameObject pathToCheck) {
 
         
@@ -213,7 +214,6 @@ public class PathPlayerController : MonoBehaviour
         _isSliding = false;
 
         // We preserve the _currentPath
-        
         _currentPath = path;
         _currentPathCreator = _currentPath.GetComponent<PathCreator>();
 
@@ -283,12 +283,13 @@ public class PathPlayerController : MonoBehaviour
         SetPath();
     }
 
+    // sets current path according to the user inputs
     private void SetPath() {
 
 
         if (!_isMoving) {
 
-            if (_hasStoppedOnBridge) {
+            if (_hasStoppedOnBridge) { // if player has stopped on a bridge
 
                 if (_shouldGoLeft) {
 
@@ -322,7 +323,7 @@ public class PathPlayerController : MonoBehaviour
                 }
 
             }
-            else {
+            else { // if player is on a platform and not a bridge
 
                 // find movement direction, set path accordingly, update path's allowed direction
                 if (_shouldGoLeft) {
@@ -365,6 +366,7 @@ public class PathPlayerController : MonoBehaviour
         }
     }
 
+    // sets current path while player is moving on a bridge
     private void SetBridgePathComponent()
     {
         SetPathComponent();
@@ -374,6 +376,7 @@ public class PathPlayerController : MonoBehaviour
         _hasStoppedOnBridge = false;
     }
 
+    // sets current path while player is on the platform
     private void SetPlatformPathComponent(Path.Direction direction, Path.Direction reverseDirection, MovementDirection lastMovementDirection)
     {
 
@@ -391,6 +394,7 @@ public class PathPlayerController : MonoBehaviour
 
     }
 
+    // sets current path, this fn is only called to check if there is a follow-up path
     private bool SetPlatformPathComponent(Path.Direction direction, Path.Direction reverseDirection, GameObject pathToCheck) {
 
         bool flag = false;
@@ -412,6 +416,7 @@ public class PathPlayerController : MonoBehaviour
         return flag;
     }
 
+    // if a new path is set as currentPath, update its and PathPlayerController's values
     private Path SetPathComponent()
     {
         Path pathComponent = _currentPath.GetComponent<Path>();

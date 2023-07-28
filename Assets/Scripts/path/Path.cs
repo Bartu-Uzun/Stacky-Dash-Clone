@@ -41,6 +41,8 @@ public class Path : MonoBehaviour
 
         return _isTwoSided;
     }
+
+    // iterates through priorityList and priorityDirrectionList to check if path has a priority over input path in the input direction
     public bool GetHasPriority(GameObject path, Direction direction) {
 
         for (int i = 0; i < _priorityOverList.Count; i++) {
@@ -57,10 +59,14 @@ public class Path : MonoBehaviour
         return false;
     }
 
+    // if path is added to pathManager's path list, than path's isCollected is true
+    // else, it is false
     public void SetIsCollected(bool isCollected) {
 
         _isCollected = isCollected;
     }
+
+    // called when path movement should be reversed
     public void ReverseDistanceTravelled() {
 
         if (_distanceTravelled == _distanceTravelledNormal) {
@@ -71,10 +77,13 @@ public class Path : MonoBehaviour
         }
     }
 
+    // called when path movement should be reversed
     public void SetDirection(Direction direction) {
 
         _direction = direction;
     }
+
+    // called when path movement should be reversed
     public void ReverseMovementFactor() {
 
         _movementFactor *= -1;

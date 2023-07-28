@@ -10698,8 +10698,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8.977384, y: 1.3, z: 3}
-  m_Center: {x: 3.3974223, y: 0, z: 0}
+  m_Size: {x: 8.168915, y: 1.3, z: 3}
+  m_Center: {x: 3.8016565, y: 0, z: 0}
 --- !u!114 &560765635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10732,7 +10732,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 1
+    vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -66896,7 +66896,8 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1836776340, guid: ae69433dd880f4f3a93ad4f0b1d41dad, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ae69433dd880f4f3a93ad4f0b1d41dad, type: 3}
 --- !u!1 &8697227615843156129 stripped
 GameObject:

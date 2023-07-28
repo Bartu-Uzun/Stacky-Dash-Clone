@@ -54,8 +54,6 @@ public class PlayerCollisionHandler : MonoBehaviour
             }
             else if (other.CompareTag(TagManager.PATH_TAG)) {
 
-                //Debug.Log("added path");
-
                 PathManager.Instance.AddPath(other.gameObject); // add path if player has access to it
 
             }
@@ -92,37 +90,8 @@ public class PlayerCollisionHandler : MonoBehaviour
                 GameManager.Instance.LevelFinished(true);
             }
 
-        }
-
-        
-        
-        
+        }   
     }
-
-    
-    /* OLD VERSION
-    private void OnTriggerStay(Collider other) {
-
-        if (!GameManager.Instance.GetLevelFinished()) { //if level has not finished yet
-
-            
-            if (other.gameObject.CompareTag(TagManager.BRIDGE_TAG)) {
-                //flag = other.GetComponent<BridgeHandler>().Slide(); 
-            }
-
-            else if (other.gameObject.CompareTag(TagManager.END_BRIDGE_TAG)) {
-                flag = other.GetComponent<BridgeHandler>().Slide();
-            }
-
-            if (flag) {
-            
-                GameManager.Instance.LevelFinished(false);
-            }
-
-        }        
-        
-    }
-    */
 
     private void OnTriggerStay(Collider other) {
         
@@ -150,14 +119,7 @@ public class PlayerCollisionHandler : MonoBehaviour
     }
 
     private void OnTriggerExit(Collider other) {
-        
-        
-        if (other.CompareTag(TagManager.BRIDGE_TAG)) {
 
-            //CamFollowPlayer.Instance.SetIsOnBridge(false); // alert camera
-
-            
-        } 
         if (other.CompareTag(TagManager.PATH_TAG)) {
 
             PathManager.Instance.RemovePath(other.gameObject); //PATHNEW remove path if player has no access to it

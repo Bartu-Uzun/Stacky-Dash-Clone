@@ -18,7 +18,7 @@ public class BridgeParent : MonoBehaviour
 
 
 
-    // this class can manage sliding operations so that player slides through bridges one by one
+    // this class can manage sliding operations so that player slides through child bridges one by one
 
     private void Awake() {
         
@@ -34,25 +34,23 @@ public class BridgeParent : MonoBehaviour
 
             _hasStoppedOnBridge = false;
 
-            _currentBridge = _bridges[_currentBridgeIndex];
+            // get current bridge,call slide fn on it
+            _currentBridge = _bridges[_currentBridgeIndex]; 
 
             _currentBridge.SlidePlayerOnBridge();
 
+            // increment bridges
             _currentBridgeIndex += _incrementAmount;
 
-            if (_currentBridgeIndex < 0) { //player left the bridge from the first edge
+            if (_currentBridgeIndex < 0) { //player left the bridge from the first edge (i.e. backwards)
 
                 EndOfBridge(_edgePath1);
                 _currentBridgeIndex = 0;
             }
-            else if (_currentBridgeIndex >= _bridges.Length) { // player left the bridge from the second edge
+            else if (_currentBridgeIndex >= _bridges.Length) { // player left the bridge from the second edge (i.e. forwards)
 
                 EndOfBridge(_edgePath2);
-
-
                 _currentBridgeIndex = _bridges.Length - 1;
-
-                //Debug.Log(_currentBridgeIndex);
             }
 
 
@@ -64,6 +62,7 @@ public class BridgeParent : MonoBehaviour
         _isPlayerOnTheBridge = true;
     }
 
+    // if player has came to the end of the bridge
     private void EndOfBridge(GameObject edgePath) {
 
         _isPlayerOnTheBridge = false;
@@ -78,6 +77,7 @@ public class BridgeParent : MonoBehaviour
         PathPlayerController.Instance.SlideOnBridge(_currentBridge.GetPath());
     }
 
+    // called when player stops on the bridge
     public void StopPlayer() {
 
         if (!_hasStoppedOnBridge) {
@@ -93,6 +93,7 @@ public class BridgeParent : MonoBehaviour
 
     }
 
+    // when player stops on the bridge, recalculate bridge operations
     public void ReCalculateBridgeWhenPlayerStopped() {
 
         ReverseIncrementAmount();
@@ -101,11 +102,7 @@ public class BridgeParent : MonoBehaviour
         _currentBridge = _bridges[_currentBridgeIndex];
     }
 
-    public void SetIsPlayerOnTheBridge(bool isPlayerOnTheBridge) {
-
-        _isPlayerOnTheBridge = isPlayerOnTheBridge;
-    }
-
+    // called when player is supposed to move on the reverse direction of the bridge
     public void ReverseIncrementAmount() {
 
         _incrementAmount *= -1;

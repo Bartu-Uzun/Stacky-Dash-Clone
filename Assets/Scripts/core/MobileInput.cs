@@ -23,8 +23,6 @@ public class MobileInput : MonoBehaviour
         else {
             Instance = this;
         }
-
-        //DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame

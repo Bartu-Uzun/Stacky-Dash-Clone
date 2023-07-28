@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8697227615095126832}
   - component: {fileID: 8697227615095126834}
   - component: {fileID: 1836776339}
-  - component: {fileID: 1836776340}
   - component: {fileID: 1836776342}
   - component: {fileID: 1836776334}
   m_Layer: 0
@@ -107,28 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ac7652d28da475891565d7d8fd94bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1836776340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8697227615095126829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7bac041069084ad09adddf71ce66e0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 2000
-  _bridgeSpeed: 1700
-  _threshold: 3.5
-  _shouldGoLeft: 0
-  _shouldGoRight: 0
-  _shouldGoUp: 0
-  _shouldGoDown: 0
-  _isMoving: 0
-  _stoppedOnBridge: 0
-  _hasEnteredToANewBridge: 0
+  _currentParent: {fileID: 0}
 --- !u!114 &1836776342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +122,7 @@ MonoBehaviour:
   _stacks:
   - {fileID: 8697227616567242891}
   _character: {fileID: 8391239364528181005}
+  _stackGarbage: {fileID: 0}
 --- !u!114 &1836776334
 MonoBehaviour:
   m_ObjectHideFlags: 0

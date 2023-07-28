@@ -23,8 +23,6 @@ public class StackHandler : MonoBehaviour
             Instance = this;
         }
 
-        //DontDestroyOnLoad(gameObject); //NEED TO TRY
-
     }
 
     public int GetStackCount() {
@@ -32,32 +30,22 @@ public class StackHandler : MonoBehaviour
         return _stacks.Count;
     }
 
-    // used in the old movement system
-    public GameObject RemoveStack() {
-
-        GameObject stack = _stacks[_stacks.Count - 1];
-
-        _stacks.Remove(stack);
-
-        _character.transform.localPosition += Vector3.down * _deltaY;
-
-        return stack;
-    }
-
-    //used in the new movement system
+    //removes the last stack from the stack list
     public void RemoveStackFromStackList() {
 
         GameObject stack = _stacks[_stacks.Count - 1];
 
         _stacks.Remove(stack);
 
-        _character.transform.localPosition += Vector3.down * _deltaY;
+        _character.transform.localPosition += Vector3.down * _deltaY; // move player down a bit
 
         stack.transform.SetParent(_stackGarbage.transform);
 
         stack.SetActive(false);
     }
 
+    // adds an input stack to stack list
+    // updates input stack's position and parent according to the last stack of the stack list
     public void AddStack(GameObject other) {
 
         GameObject lastStack = _stacks[_stacks.Count - 1];
@@ -68,7 +56,7 @@ public class StackHandler : MonoBehaviour
 
         _stacks.Add(other);
 
-        _character.transform.localPosition += Vector3.up * _deltaY;
+        _character.transform.localPosition += Vector3.up * _deltaY; // move player up a bit
 
     }
 }

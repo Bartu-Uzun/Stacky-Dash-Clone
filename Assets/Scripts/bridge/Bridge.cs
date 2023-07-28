@@ -52,10 +52,10 @@ public class Bridge : MonoBehaviour
 
     private void LetPlayerSlide() {
         // move player in the bridge's path
-        //PathPlayerController.Instance.SlideOnBridge(_path);
         _parent.LetPlayerSlide();
     }
 
+    //adds one of the player's stacks to the bridge
     private void AddStackToBridge() {
 
         // remove stack from stackhandler's stackList

@@ -43,9 +43,12 @@ public class GameManager : MonoBehaviour
             
         }
         
+        // set level values
         _lastLevelIndex = SceneManager.sceneCountInBuildSettings - 1; //one scene is just the level menu
         _currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
         _currentLevel = _currentLevelIndex + 1;
+
+
         _highScore = GetPreviousHighScore(); // get previous highscore
         _totalScore = GetPreviousTotalScore(); // get previous total score
 
@@ -58,9 +61,6 @@ public class GameManager : MonoBehaviour
     {
 
         _levelFinished = true;
-
-        //add score to the total currency!
-
 
         CalculateScore();
 
@@ -85,8 +85,6 @@ public class GameManager : MonoBehaviour
             _nextLevelButton.SetActive(false);
         }
 
-
-        
     }
 
     /* takes previous score from PlayerPrefs, adds score of the current level and updates PlayerPrefs */
@@ -170,7 +168,6 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel() {
 
-        //StartCoroutine(RestartLevelCoroutine());
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     }
@@ -184,12 +181,14 @@ public class GameManager : MonoBehaviour
 
     }
 
+    // gets final score, and multiplies with with the _times
     private void CalculateScore() {
 
         _currentScore = ScoreHandler.Instance.GetScore() * _times;
 
     }
 
+    // _times is the x<number> value player achieves at the end of the level
     public void SetTimes(int times) {
 
         _times = times;

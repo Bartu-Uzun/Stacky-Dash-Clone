@@ -47,14 +47,6 @@ public class CamFollowPlayer : MonoBehaviour
 
     private void UpdateCamPos()
     {
-        // TODO: make camera stand still when player is on platform, and follow along when they on the bridge
-
-        // if (_isOnBridge) { //if player is on bridge, follow along in the x axis as well
-        //     _destination.x = _target.transform.position.x + _offset.x;
-        // }
-        // else { //if not, x position of the camera stands still
-        //     _destination.x = _xPos;
-        // }
 
 
         _destination.x = _target.transform.position.x + _offset.x;
