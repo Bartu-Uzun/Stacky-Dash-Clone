@@ -207,8 +207,6 @@ public class PathManager : MonoBehaviour
 
             if (currentPathComponent.GetIsTwoSided() && currentPathComponent.GetDirection() == reverseDirection && !_paths[i].Equals(pathToCheck)) { 
 
-                //Debug.Log("current path: " + _paths[i] + "pathToCheck: " + pathToCheck + "isEqual: " + _paths[i].Equals(pathToCheck));
-
                 Debug.Log("follow reverse");
                 Debug.Log("current path: " + _paths[i] + "pathToCheck: " + pathToCheck + " reverseDirection: " + reverseDirection);
 
@@ -221,6 +219,21 @@ public class PathManager : MonoBehaviour
         }
 
         return null;
+
+    }
+
+    private bool HasPriorityOver(GameObject pathToCheck, GameObject currentPath, Path.Direction direction) {
+
+
+        Path pathComponent = pathToCheck.GetComponent<Path>();
+
+        bool flag = pathComponent.GetHasPriority(currentPath, direction);
+
+        Debug.Log("im called. pathToCheck: " + pathToCheck + " currentPath: " + currentPath + " direction: " + direction + " HasPriority: " + flag);
+
+
+        return flag;
+
 
     }
 }
